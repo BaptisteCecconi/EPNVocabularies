@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xml:lang="en" xmlns="http://voparis-ns.obspm.fr/epn/product-type#"
+    xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:ivoasem="http://www.ivoa.net/rdf/ivoasem#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    <owl:Ontology rdf:about="http://voparis-ns.obspm.fr/epn/product-type">
+        <dc:created>2023-11-11</dc:created>
+        <dc:contributor>
+            <rdf:Description>
+                <foaf:name>Cecconi, B.</foaf:name>
+            </rdf:Description>
+        </dc:contributor>
+        <dc:creator>
+            <rdf:Description>
+                <foaf:name>Erard, S.</foaf:name>
+            </rdf:Description>
+        </dc:creator>
+        <dc:description>The EPNcore product-type parameter describes the high level 
+            scientific organization of the data product linked by the access_url parameter, or 
+            directly included in the table (in which case the value is 'ci' for catalogue_item). 
+            EPNCore currently defines several types listed below. The data provider must select 
+            the type most adapted to his data. In complex situations (e. g., when a file contains 
+            several data products), several types can be used to describe the same granule by 
+            using a hash-separated-list — although using several granules to describe the file 
+            content may be a better solution. In EPN-TAP these types are identified by a 
+            2-characters ID, so that multivalued queries are unambiguous</dc:description>
+        <dc:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+        <dc:title xml:lang="en">EPNcore Dataproduct Type</dc:title>
+        <ivoasem:vocflavour>RDF Class</ivoasem:vocflavour>
+        <rdfs:label xml:lang="en">EPNcore Dataproduct Type</rdfs:label>
+    </owl:Ontology>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#im">
+        <rdfs:label xml:lang="en">Image</rdfs:label>
+        <rdfs:comment xml:lang="en">Scalar field with two spatial axes, or association of several
+            such fields, e.g., images with multiple color planes, from multichannel or filter
+            cameras. Preview images (e.g. map with axis and caption) also belong here. Conversely,
+            vectorial 2D fields are described as spatial_vector (sv).</rdfs:comment>
+        <skos:exactMatch rdf:resource="http://www.ivoa.net/rdf/product-type#image"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#ma">
+        <rdfs:label xml:lang="en">Map</rdfs:label>
+        <rdfs:comment xml:lang="en">scalar field / rasters with two spatial axes covering a large
+            area and projected either on the sky or on a planetary body, associated to
+            spatial_coordinate_description and map_projection parameters (with a short enumerated
+            list of possible values); each pixel is associated to 2D coordinates. This is mostly
+            intended to identify radiometrically calibrated and orthorectified images with complete
+            coverage that can be used as reference basemaps.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://voparis-ns.obspm.fr/epn/product-type#im"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#sp">
+        <rdfs:label xml:lang="en">Spectrum</rdfs:label>
+        <rdfs:comment xml:lang="en">Measurements organized primarily along a spectral axis, e.g.,
+            radiance spectra. This includes spectral aggregates (series of related spectral segments
+            with non-connected spectral ranges, e.g., from several channels of the same instrument,
+            various orders from an échelle spectrometer, composite spectra, SED,
+            etc).</rdfs:comment>
+        <skos:exactMatch rdf:resource="http://www.ivoa.net/rdf/product-type#spectrum"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#ds">
+        <rdfs:label xml:lang="en">Dynamic Spectrum</rdfs:label>
+        <rdfs:comment xml:lang="en">Consecutive spectral measurements through time, organized
+            primarily as a time series. This typically implies successive spectra of the same target
+            / field of view.</rdfs:comment>
+        <skos:exactMatch rdf:resource="http://www.ivoa.net/rdf/product-type#dynamic-spectrum"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#sc">
+        <rdfs:label xml:lang="en">Spectral Cube</rdfs:label>
+        <rdfs:comment xml:lang="en">Sets of consecutive spectral measurements with 1D or 2D spatial
+            coverage, e.g., imaging spectroscopy. The choice between image and spectral_cube is
+            dictated by the characteristics of the instrument (which dimension is most resolved and
+            which dimensions are acquired simultaneously). The choice between dynamic_spectrum and
+            spectral_cube is related to the uniformity of the field of view and by practices in the
+            science field.</rdfs:comment>
+        <skos:exactMatch rdf:resource="http://www.ivoa.net/rdf/product-type#spectral-cube"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#pr">
+        <rdfs:label xml:lang="en">Profile</rdfs:label>
+        <rdfs:comment xml:lang="en">Scalar or vectorial measurements along 1 spatial dimension,
+            e.g., atmospheric profiles, atmospheric paths, sub-surface profiles,
+            traverses...</rdfs:comment>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#vo">
+        <rdfs:label xml:lang="en">Volume</rdfs:label>
+        <rdfs:comment xml:lang="en">Measurements with 3 spatial dimensions, e.g., internal or
+            atmospheric structures, including shells/shape models (3D surfaces).</rdfs:comment>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#mo">
+        <rdfs:label xml:lang="en">Movie</rdfs:label>
+        <rdfs:comment xml:lang="en">Sets of chronological 2D spatial measurements (consecutive
+            images)</rdfs:comment>
+        <skos:exactMatch rdf:resource="http://www.ivoa.net/rdf/product-type#time-cube"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#cu">
+        <rdfs:label xml:lang="en">Cube</rdfs:label>
+        <rdfs:comment xml:lang="en">Multidimensional data with 3 or more axes, e.g., all that is not
+            described by other 3D data types such as spectral cube or volume. This is intended to
+            accommodate unusual data with multiple dimensions. This can be used for 3D ancillary
+            data associated to spectral cubes, e.g., providing the coordinates or illumination
+            angles for each spectrum.</rdfs:comment>
+        <skos:exactMatch rdf:resource="http://www.ivoa.net/rdf/product-type#cube"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#ts">
+        <rdfs:label xml:lang="en">Time Series</rdfs:label>
+        <rdfs:comment xml:lang="en">Measurements organized primarily as a function of time (with 
+            exception of dynamical spectra and movies, i.e. usually a scalar quantity). Typical 
+            examples of time series include space-borne dust detector measurements, daily or 
+            seasonal curves measured at a given location (e.g., a lander), and light 
+            curves.</rdfs:comment>
+        <skos:exactMatch rdf:resource="http://www.ivoa.net/rdf/product-type#timesseries"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#ca">
+        <rdfs:label xml:lang="en">Catalogue</rdfs:label>
+        <rdfs:comment xml:lang="en">Applies to a granule providing a catalogue of object parameters, 
+            a list of features, a table of granules in another TAP service, a list of events... 
+            The result metadata table of a service query can be considered as a catalogue. 
+            Catalogues can be provided as VOtable (possibly containing multiple tables, although 
+            this is not supported by SAMP). It is good practice to describe the type of data 
+            included in the catalogue using a hash-separated-list (e.g., a table of spectra should 
+            be described by ca#sp, so that it will respond to a query for spectra).</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://www.ivoa.net/rdf/product-type#measurements"/>
+        <rdfs:seeAlso rdf:resource="http://www.ivoa.net/rdf/product-type#event-list"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#ci">
+        <rdfs:label xml:lang="en">Catalogue Item</rdfs:label>
+        <rdfs:comment xml:lang="en">applies when the service itself provides a catalogue with 
+            entries described as individual granules, in particular when there is no associated 
+            file (e. g., a list of asteroid properties or spectral lines). Catalogue_item can be 
+            limited to scalar quantities (including strings), and possibly to a single element. 
+            This organization allows the user to search inside the catalogue from the TAP query 
+            interface. In practice, Spice kernels are identified as catalogue_items because they 
+            are usually associated to a set of scalar parameters (this point TBC).</rdfs:comment>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#sv">
+        <rdfs:label xml:lang="en">Spatial Vector</rdfs:label>
+        <rdfs:comment xml:lang="en">Vector information associated to localization, such as a 
+            spatial footprints, a GIS-related element, etc — e. g. a kml or geojson file (STC-S 
+            strings are provided though the s_region parameter, though). This includes maps of 
+            vectors, e.g., wind maps.</rdfs:comment>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/epn/product-type#ev">
+        <rdfs:label xml:lang="en">Event</rdfs:label>
+        <rdfs:comment xml:lang="en">Introduces individual VOevents formatted according to IVOA 
+            standard (or possibly events with other formatting, TBC).</rdfs:comment>
+    </rdfs:Class>
+</rdf:RDF>
