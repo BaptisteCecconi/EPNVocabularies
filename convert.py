@@ -39,9 +39,8 @@ try:
     import skosify
     from rdflib.term import URIRef
 except ImportError:
-    sys.stderr.write("skosify and/or rdflib python modules missing;"
-        " this will break as soon as SKOS vocabularies are processed.\n")
-
+    sys.stderr.write("""skosify and/or rdflib python modules missing;
+        this will break as soon as SKOS vocabularies are processed.\n""")
 
 # Minimal required keys for a vocabulary construction
 VOCABULARY_MANDATORY_KEYS = frozenset([
@@ -54,7 +53,7 @@ KNOWN_PREDICATES = frozenset([
     "rdfs:subPropertyOf",
     "skos:broader", "skos:exactMatch",
     # well, this one isn't quite in VocInVO2 in late 2020.  Let's see.
-    "skos:related"])
+    "skos:related", "rdfs:seeAlso"])
 
 # an RE our term URIs must match (we're not very diligent yet)
 FULL_TERM_PATTERN = "[\w\d#:/_.*%-]+"
@@ -62,7 +61,7 @@ FULL_TERM_PATTERN = "[\w\d#:/_.*%-]+"
 # an RE our terms themselves must match
 TERM_PATTERN = "[\w\d_-]+"
 
-IVOA_RDF_URI = "http://www.ivoa.net/rdf/"
+IVOA_RDF_URI = "http://voparis-ns.obspm.fr/rdf/"
 
 HT_ACCESS_TEMPLATE_CSV = """# .htaccess for content negotiation
 
@@ -646,9 +645,10 @@ class Term(object):
         """
         for prop, label in [
                ("ivoasem:useInstead", "Use Instead"),
-               ("ivoasem:deprecated", "Deprecated Term"),
+               ("ivoasem:deprecated", "Deprecated Term"),  # use owl:DeprecatedClass instead ?
                ("skos:exactMatch", "Same As"),
                ("skos:related", "Related"),
+               ("rdfs:seeAlso", "seeAlso"),
                ("built-in:narrower", "Narrower")]:
 
             if prop=="built-in:narrower":
@@ -776,7 +776,7 @@ class Vocabulary(object):
         defaults = {
             "path": path,
             "baseuri": IVOA_RDF_URI+path,
-            "filename": os.path.join(path, "terms.csv"),
+            "filename": "terms.csv",
             "licensehtml": DEFAULT_LICENSE_HTML,
             "licenseuri":
                 "http://creativecommons.org/publicdomain/zero/1.0/",
@@ -796,8 +796,8 @@ class Vocabulary(object):
 
         This needs to be overridden in derived classes.
         """
-        raise NotImplementedError("Base vocabularies cannot parse;"
-            " use a derived class")
+        raise NotImplementedError("""Base vocabularies cannot parse;
+            use a derived class""")
 
     def _load_terms(self):
         """arranges for the term attribute to be created.
@@ -809,11 +809,11 @@ class Vocabulary(object):
         """
         try:
             # just see whether the file is readable.
-            with open(self.filename, "rb") as f:
+            with open(os.path.join(self.path, self.filename), "rb") as f:
                 _ = f.read(10)
         except IOError as ex:
             raise ReportableError(
-                "Expected terms file {}.terms cannot be read: {}".format(
+                "Expected terms file {}. Terms cannot be read: {}".format(
                     self.filename, ex))
         self._read_terms_source()
 
@@ -1000,6 +1000,84 @@ def comment_ignoring(f):
         yield ln
 
 
+class RDFBasedVocabulary(Vocabulary):
+    """A vocabulary parsed from RDFS format.
+    """
+
+    def _read_terms_source(self):
+        """creates Terms instances from RDFS format.
+        """
+        triples = rdflib.Graph()
+        triples.parse(os.path.join(self.path, self.filename))
+        terms = [str(x[0]).split('#')[1] for x in triples.query("""
+            select distinct ?x 
+            where  { 
+                ?x a <http://www.w3.org/2000/01/rdf-schema#Class> . 
+            }
+            """)]
+        labels = dict([
+            (str(x).split("#")[1], str(y))
+            for x, y in triples.query("""
+            select ?x ?y
+            where  { 
+                ?x rdfs:label ?y . 
+            }
+            """, initNs={"rdfs": rdflib.RDFS})
+            if "#" in str(x)
+        ])
+        descriptions = dict([
+            (str(x).split("#")[1], str(y))
+            for x, y in triples.query("""
+            select ?x ?y
+            where  { 
+                ?x rdfs:comment ?y . 
+            }
+            """, initNs={"rdfs": rdflib.RDFS})
+            if "#" in str(x)
+        ])
+        tmp = triples.query("""
+            select distinct ?x ?p ?y 
+            where  { 
+                ?x a <http://www.w3.org/2000/01/rdf-schema#Class> ;
+                   ?p ?y . 
+                FILTER(?p != rdfs:label && ?p != rdfs:comment && ?p != rdf:type)
+            }
+            """, initNs={"rdfs": rdflib.RDFS, "rdf": rdflib.RDF})
+        other_relations = dict([(term, None) for term in terms])
+        for x, p, y in tmp:
+            p = p.replace("http://www.w3.org/2000/01/rdf-schema#", "rdfs:")
+            p = p.replace("http://www.w3.org/2004/02/skos/core#", "skos:")
+            other_relation = f'{str(p)}({str(y)})'
+            term = str(x).split("#")[1]
+            if other_relations[term] is None:
+                other_relations[term] = other_relation
+            else:
+                other_relations[term] += ' ' + other_relation
+
+        self.terms = {}
+        for term in terms:
+            new_term = Term(
+                self,
+                term,
+                labels[term],
+                descriptions[term],
+                None,
+                other_relations[term])
+
+            self.terms[new_term.term] = new_term
+
+    def write_rdfx(self):
+        """Copies the RDF/X input file to the final location.
+        """
+        import shutil
+        os.path.dirname(os.path.abspath(__file__))
+        shutil.copy(os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            self.path,
+            self.filename
+        ), '.')
+
+
 class CSVBasedVocabulary(Vocabulary):
     """A vocabulary parsed from our custom CSV format.
     """
@@ -1009,7 +1087,7 @@ class CSVBasedVocabulary(Vocabulary):
         parent_stack = []
         last_term = None
         self.terms = {}
-        with open(self.filename, "r", encoding="utf-8") as f:
+        with open(os.path.join(self.path, self.filename), "r", encoding="utf-8") as f:
             for index, rec in enumerate(csv.reader(
                     comment_ignoring(f), delimiter=";")):
                 rec = [(s or None) for s in rec]
@@ -1046,27 +1124,41 @@ class CSVBasedVocabulary(Vocabulary):
                             self.filename, index, rec))
 
 
-class RDFSVocabulary(CSVBasedVocabulary):
+class RDFSVocabulary(object):
     """A vocabulary based on RDFS properties.
     """
     label_property = "rdfs:label"
     description_property = "rdfs:comment"
 
 
-class RDFPropertyVocabulary(RDFSVocabulary):
+class RDFSCVSClassVocabulary(RDFSVocabulary, CSVBasedVocabulary):
+    """A vocabulary of rdf:Class instances.
+    """
+    term_class = "rdfs:Class"
+    wider_predicate = "rdfs:subClassOf"
+    flavour = "RDF CSV Class"
+
+class RDFSCVSPropertyVocabulary(RDFSVocabulary, CSVBasedVocabulary):
     """A vocabulary of rdf:Property instances.
     """
     term_class = "rdf:Property"
     wider_predicate = "rdfs:subPropertyOf"
-    flavour = "RDF Property"
+    flavour = "RDF CSV Property"
 
 
-class RDFSClassVocabulary(RDFSVocabulary):
+class RDFSClassVocabulary(RDFSVocabulary, RDFBasedVocabulary):
     """A vocabulary of rdfs:Class instances.
     """
     term_class = "rdfs:Class"
     wider_predicate = "rdfs:subClassOf"
     flavour = "RDF Class"
+
+class RDFSPropertyVocabulary(RDFSVocabulary, RDFBasedVocabulary):
+    """A vocabulary of rdf:Property instances.
+    """
+    term_class = "rdf:Property"
+    wider_predicate = "rdfs:subPropertyOf"
+    flavour = "RDF Property"
 
 
 class SKOSMixin:
