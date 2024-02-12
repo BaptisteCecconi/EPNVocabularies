@@ -53,7 +53,8 @@ KNOWN_PREDICATES = frozenset([
     "rdfs:subPropertyOf",
     "skos:broader", "skos:exactMatch",
     # well, this one isn't quite in VocInVO2 in late 2020.  Let's see.
-    "skos:related", "rdfs:seeAlso"])
+    "skos:related", "rdfs:seeAlso",
+    "daci:IsDescribedBy", "dc:Location"])
 
 # an RE our term URIs must match (we're not very diligent yet)
 FULL_TERM_PATTERN = "[\w\d#:/_.*%-]+"
@@ -104,6 +105,7 @@ TTL_HEADER_TEMPLATE = """@base {baseuri}.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix ivoasem: <http://www.ivoa.net/rdf/ivoasem#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix daci: <http://purl.org/datacite/v4.4/>.
 
 <> a owl:Ontology;
     dc:created {timestamp};
@@ -1047,6 +1049,10 @@ class RDFBasedVocabulary(Vocabulary):
         for x, p, y in tmp:
             p = p.replace("http://www.w3.org/2000/01/rdf-schema#", "rdfs:")
             p = p.replace("http://www.w3.org/2004/02/skos/core#", "skos:")
+            p = p.replace("http://purl.org/datacite/v4.4/", "daci:")
+            p = p.replace("http://www.ivoa.net/rdf/ivoasem#", "ivoasem:")
+            p = p.replace("http://purl.org/dc/terms/", "dc:")
+
             other_relation = f'{str(p)}({str(y)})'
             term = str(x).split("#")[1]
             if other_relations[term] is None:
