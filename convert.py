@@ -62,7 +62,7 @@ FULL_TERM_PATTERN = "[\w\d#:/_.*%-]+"
 # an RE our terms themselves must match
 TERM_PATTERN = "[\w\d_-]+"
 
-IVOA_RDF_URI = "http://voparis-ns.obspm.fr/rdf/"
+PADC_RDF_URI = "http://voparis-ns.obspm.fr/rdf/"
 
 HT_ACCESS_TEMPLATE_CSV = """# .htaccess for content negotiation
 
@@ -777,7 +777,7 @@ class Vocabulary(object):
         path = meta.get("path", meta["name"])
         defaults = {
             "path": path,
-            "baseuri": IVOA_RDF_URI+path,
+            "baseuri": PADC_RDF_URI + path,
             "filename": "terms.csv",
             "licensehtml": DEFAULT_LICENSE_HTML,
             "licenseuri":
@@ -907,14 +907,14 @@ class Vocabulary(object):
             '<p id="license">'+self.licensehtml+'</p>')
         doc = T.html(xmlns="http://www.w3.org/1999/xhtml")[
         T.head[
-            T.title["IVOA Vocabulary: "+self.title],
+            T.title["PADC Vocabulary: "+self.title],
             T.meta(http_equiv="content-type",
                 content="text/html;charset=utf-8"),
             T.script(type="text/javascript") [JAVASCRIPT],
             T.style(type="text/css")[
                 CSS_STYLE],],
         T.body[
-            T.h1["IVOA Vocabulary: "+self.title],
+            T.h1["PADC Vocabulary: "+self.title],
             T.div(class_="intro")[
                 T.p["This is the description of the vocabulary ",
                     T.code[self.baseuri],
@@ -1012,9 +1012,9 @@ class RDFBasedVocabulary(Vocabulary):
         triples = rdflib.Graph()
         triples.parse(os.path.join(self.path, self.filename))
         terms = [str(x[0]).split('#')[1] for x in triples.query("""
-            select distinct ?x 
+            select distinct ?x
             where  { 
-                ?x a <http://www.w3.org/2000/01/rdf-schema#Class> . 
+                ?x a <http://www.w3.org/2000/01/rdf-schema#Class> .
             }
             """)]
         labels = dict([
@@ -1144,6 +1144,7 @@ class RDFSCVSClassVocabulary(RDFSVocabulary, CSVBasedVocabulary):
     wider_predicate = "rdfs:subClassOf"
     flavour = "RDF CSV Class"
 
+
 class RDFSCVSPropertyVocabulary(RDFSVocabulary, CSVBasedVocabulary):
     """A vocabulary of rdf:Property instances.
     """
@@ -1158,6 +1159,7 @@ class RDFSClassVocabulary(RDFSVocabulary, RDFBasedVocabulary):
     term_class = "rdfs:Class"
     wider_predicate = "rdfs:subClassOf"
     flavour = "RDF Class"
+
 
 class RDFSPropertyVocabulary(RDFSVocabulary, RDFBasedVocabulary):
     """A vocabulary of rdf:Property instances.
@@ -1374,7 +1376,7 @@ def parse_command_line():
     import argparse
     parser = argparse.ArgumentParser(
         description='Creates RDF/X, HTML and turtle representations'
-            ' for IVOA vocabularies.')
+            ' for PADC vocabularies.')
     parser.add_argument("vocab_name",
         help="Name (i.e., vocabs.conf section) of vocabulary to build."
         "  Use ALL to rebuild everything in the configuration file"
@@ -1388,11 +1390,11 @@ def parse_command_line():
         default="vocabs.conf")
     parser.add_argument("--root-uri",
         help="Use URI as the common root of the vocabularies instead of"
-        " the official IVOA location as the root of the vocabulary"
+        " the official PADC location as the root of the vocabulary"
         " hierarchy.  This is for test installations at this point.",
         action="store",
         dest="root_uri",
-        default="http://www.ivoa.net/rdf/",
+        default=PADC_RDF_URI,
         metavar="URI")
     parser.add_argument("--dest-dir",
         help="Create output hierarchy below PATH.",
