@@ -51,7 +51,7 @@ from xml.etree import ElementTree as etree
 
 # this is the URI that should complete a local relative path to
 # a resolvable URI
-IVOA_RDF_BASE = "http://www.ivoa.net/rdf"
+PADC_RDF_BASE = "https://voparis-ns.obspm.fr/rdf"
 
 
 class ReportableError(Exception):
