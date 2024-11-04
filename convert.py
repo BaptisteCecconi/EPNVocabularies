@@ -85,7 +85,7 @@ RewriteCond %{{HTTP_ACCEPT}} application/rdf\\+xml
 RewriteRule ^$ {name}.rdf [R=303]
 
 RewriteCond %{{HTTP_ACCEPT}} text/turtle
-RewriteRule ^$ {timestamp}/{name}.ttl [R=303]
+RewriteRule ^$ {name}.ttl [R=303]
 
 RewriteCond %{{HTTP_ACCEPT}} application/x-desise\\+json
 RewriteRule ^$ {name}.desise [R=303]
