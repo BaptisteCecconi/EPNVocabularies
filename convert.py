@@ -878,6 +878,9 @@ class Vocabulary(object):
                     '[ foaf:name {} ]'.format(make_ttl_literal(n.strip()))
                 for n in self.authors.split(";"))
             f.write(TTL_HEADER_TEMPLATE.format(**meta_items))
+            if meta_items['previous'] != "":
+                f.write("\n<> owl:priorVersion {} .\n".format(meta_items['prior_version']))
+                f.write("owl:priorVersion a owl:AnnotationProperty.\n\n")
 
             for _, term in sorted(self.terms.items()):
                 f.write(term.as_ttl())
