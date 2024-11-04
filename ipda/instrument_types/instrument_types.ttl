@@ -1,0 +1,773 @@
+@base <http://voparis-ns.obspm.fr/rdf/ipda/instrument>.
+@prefix pds: <http://voparis-ns.obspm.fr/rdf/ipda/instrument>.
+@prefix : <#> .
+
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix ivoasem: <http://www.ivoa.net/rdf/ivoasem#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+
+<> a owl:Ontology;
+    owl:versionInfo <http://voparis-ns.obspm.fr/rdf/ipda/instrument/2024-04-11/instrument> ;
+    dc:created "2024-04-11";
+    dc:creator [ foaf:name "Cecconi, B." ],
+        [ foaf:name "Besse, S."],
+        [ foaf:name "PDS4" ];
+    dc:license <http://creativecommons.org/publicdomain/zero/1.0/>;
+    rdfs:label "Instrument Types for NASA/PDS3, NASA/PDS4 and PSA"@en;
+    dc:title "Instrument Types for NASA/PDS3, NASA/PDS4 and PSA"@en;
+    dc:description "Instrument Types for NASA/PDS3, NASA/PDS4 and PSA"@en ;
+    ivoasem:vocflavour "RDF Class".
+
+dc:created a owl:AnnotationProperty.
+dc:creator a owl:AnnotationProperty.
+dc:title a owl:AnnotationProperty.
+dc:description a owl:AnnotationProperty.
+
+pds:steward a owl:DatatypeProperty ;
+    rdfs:range xsd:string .
+
+pds:Instrument_Host a rdfs:Class ;
+    pds:steward "pds" ;
+    rdfs:label "Instrument Host"@en ;
+    rdfs:comment "The Instrument Host class provides a description of the physical object upon which an instrument is mounted."@en .
+
+pds:Aircraft rdfs:subClassOf pds:Instrument_Host ;
+    pds:steward "pds" ;
+    rdfs:label "Aircraft"@en ;
+    rdfs:comment "An airborne observatory carried on a powered, heavier than air vessel supporting observations, measurements, and scientific experiments during flight."@en .
+
+pds:Balloon rdfs:subClassOf pds:Instrument_Host ;
+    pds:steward "pds" ;
+    rdfs:label "Balloon"@en ;
+    rdfs:comment "A balloon-borne observatory, typically consisting of a gondola structure carrying one or more telescopes and instruments, borne aloft by an unpowered or minimially powered lighter-than-atmosphere balloon for a limited observing period."@en .
+
+pds:Lander rdfs:subClassOf pds:Instrument_Host ;
+    pds:steward "pds" ;
+    rdfs:label "Lander"@en ;
+    rdfs:comment "A spacecraft designed for descent to and operation at a single fixed point on the surface of a celestial body."@en .
+
+pds:Rover rdfs:subClassOf pds:Instrument_Host ;
+    pds:steward "pds" ;
+    rdfs:label "Rover"@en ;
+    rdfs:comment "A spacecraft designed for descent to and mobile operation on the surface of a celestial body."@en .
+
+pds:Spacecraft rdfs:subClassOf pds:Instrument_Host ;
+    pds:steward "pds" ;
+    rdfs:label "Spacecraft"@en ;
+    rdfs:comment "A vehicle designed for travel in outer space ('outer space' is the region more than 100 km above the Earth's surface, a convention accepted in many contexts -- see http://en.wikipedia.org/wiki/Outer_space)."@en .
+
+pds:SuborbitalRocket rdfs:subClassOf pds:Instrument_Host ;
+    pds:steward "pds" ;
+    rdfs:label "Suborbital Rocket"@en ;
+    rdfs:comment "A Suborbital Rocket is an instrument-carrying rocket designed to take measurements and perform scientific experiments during its sub-orbital flight."@en .
+
+pds:Investigation a rdfs:Class ;
+    pds:steward "pds" ;
+    rdfs:label "Investigation"@en ;
+    rdfs:comment "A set of experiments and/or observations with a clearly defined purpose."@en .
+
+pds:FieldCampaign rdfs:subClassOf pds:Investigation ;
+    rdfs:label "Field Campaign"@en ;
+    rdfs:comment "A set of experiments and/or observations with a clearly defined purpose that is coordinated among one or more individuals and/or one or more organizations. The campaign is characterized primarily by its in situ terrestrial field work."@en .
+
+pds:IndividualInvestigation rdfs:subClassOf pds:Investigation ;
+    rdfs:label "Individual Investigation"@en ;
+    rdfs:comment "A set of experiments and/or observations with a clearly defined purpose that is under the direction of a single individual. For example, a series of related laboratory experiments/observations conducted by a small university team and funded through a single proposal could be an Individual Investigation. Library research by one person on previously published results to distill common conclusions could also be an Individual Investigation."@en .
+
+pds:Mission rdfs:subClassOf pds:Investigation ;
+    rdfs:label "Mission"@en ;
+    rdfs:comment "A set of experiments and/or observations with a clearly defined purpose that is under the direction of an organization (such as a national space agency) and uses one or more vehicles of similar design. A mission is usually conducted by a national or international space agency using a small number (often one) of spacecraft especially designed and built for the purpose. For example: (1) the NASA Voyager mission launched two spacecraft to Jupiter and Saturn; (2) the Deep Impact (DI) mission launched a spacecraft, part of which impacted the comet Tempel 2; and (3) the EPOXI mission redefined the objectives of the surviving DI hardware for further exploration of the solar system."@en .
+
+pds:ObservingCampaign rdfs:subClassOf pds:Investigation ;
+    rdfs:label "Observing Campaign"@en ;
+    rdfs:comment "A set of experiments and/or observations with a clearly defined purpose that is coordinated among one or more individuals and/or one or more organizations. The campaign is characterized primarily by its remote sensing observations. For example, the International Halley Watch mobilized observatories around the world for collection of data during the most recent apparition of Comet Halley. The Shoemaker-Levy-9 (SL9) campaign used both Earth-based and spacecraft instruments to monitor the SL9 impact on Jupiter."@en .
+
+pds:OtherInvestigation rdfs:subClassOf pds:Investigation ;
+    rdfs:label "Other Investigation"@en ;
+    rdfs:comment "Any other set of experiments and/or observations with a unifying theme."@en .
+
+pds:Observing_System_Component a rdfs:Class ;
+    rdfs:label "Observing_System_Component"@en ;
+    rdfs:comment "The Observing System Component class describes one or more subsystems used to collect data."@en .
+
+pds:Host rdfs:subClassOf pds:Observing_System_Component ;
+   rdfs:label "Host"@en ;
+   rdfs:comment "The observing system component is a host or a member in a chain of hosts that ultimately contains an instrument that collects data."@en .
+
+pds:Instrument rdfs:subClassOf pds:Observing_System_Component ;
+   rdfs:label "Instrument"@en ;
+   rdfs:comment "The observing system component is an instrument"@en .
+
+pds:LiteratureSearch rdfs:subClassOf pds:Observing_System_Component ;
+   rdfs:label "Literature Search"@en ;
+   rdfs:comment "The observing system component is a literature search"@en .
+
+pds:Telescope rdfs:subClassOf pds:Observing_System_Component ;
+   rdfs:label "Telescope"@en ;
+   rdfs:comment "The observing system component is a telescope"@en .
+
+pds:InstrumentPDS3 rdfs:subClassOf pds:Instrument ;
+    rdfs:label "PDS3 instrument type"@en ;
+    rdfs:comment "Instrument type, as defined in NASA/PDS3"@en .
+
+pds:InstrumentPDS4 rdfs:subClassOf pds:Instrument ;
+    rdfs:label "PDS4 instrument type"@en ;
+    rdfs:comment "Instrument type, as defined in NASA/PDS4"@en .
+
+pds:Accelerometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures proper (i.e., its own) acceleration."@en ;
+    rdfs:label "Accelerometer"@en .
+
+pds:AlphaParticleDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the number and/or distribution of alpha particles."@en ;
+    rdfs:label "Alpha Particle Detector"@en .
+
+pds:AlphaParticleXRaySpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that bombards a sample with alpha particles and X-rays and measures the energy spectrum of scattered alpha particles and X-rays to determine the sample's elemental composition."@en ;
+    rdfs:label "Alpha Particle X-Ray Spectrometer"@en .
+
+pds:Altimeter rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures its own altitude above a reference level (for example, a locally flat surface on the Earth)."@en ;
+    rdfs:label "Altimeter"@en .
+
+pds:Anemometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An in situ instrument that measures wind speed."@en ;
+    rdfs:label "Anemometer"@en .
+
+pds:AtomicForceMicroscope rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that uses atomic forces between a probe and a sample to produce high-resolution topographic scans of the sample."@en ;
+    rdfs:label "Atomic Force Microscope"@en .
+
+pds:Barometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An in situ instrument that measures atmospheric pressure."@en ;
+    rdfs:label "Barometer"@en .
+
+pds:BiologyExperiments rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that conducts one or more experiments on samples to determine their potential for biological activity."@en ;
+    rdfs:label "Biology Experiments"@en .
+
+pds:Bolometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that estimates radiation intensity by measuring changes in electrical resistivity as the temperature of its sensor varies in response to the incident power density."@en ;
+    rdfs:label "Bolometer"@en .
+
+pds:Camera rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that records and stores analog images (compare 'imager')."@en ;
+    rdfs:label "Camera"@en ;
+    rdfs:seeAlso pds:Imager .
+
+pds:CosmicRayDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that detects and/or measures cosmic rays."@en ;
+    rdfs:label "Cosmic Ray Detector"@en .
+
+pds:DrillingTool rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "A tool that drills into samples."@en ;
+    rdfs:label "Drilling Tool"@en .
+
+pds:DustDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that detects and/or measures dust."@en ;
+    rdfs:label "Dust Detector"@en .
+
+pds:ElectricalProbe rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An in situ instrument that measures electrical properties (e.g., conductivity) of a medium into which it is inserted."@en ;
+    rdfs:label "Electrical Probe"@en .
+
+pds:EnergeticParticleDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that detects and/or measures energetic charged particles."@en ;
+    rdfs:label "Energetic Particle Detector"@en .
+
+pds:GammaRayDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that detects and/or measures gamma rays."@en ;
+    rdfs:label "Gamma Ray Detector"@en .
+
+pds:GasAnalyzer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "A high-temperature furnace combined with a mass spectrometer that heats a sample and analyzes the mass distribution of the evolved gases."@en ;
+    rdfs:label "Gas Analyzer"@en .
+
+pds:GrindingTool rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "A tool that grinds into samples."@en ;
+    rdfs:label "Grinding Tool"@en .
+
+pds:Hygrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument used to measure the moisture content of its environment."@en ;
+    rdfs:label "Hygrometer"@en .
+
+pds:Imager rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that records and stores digital images (compare 'camera')."@en ;
+    rdfs:label "Imager"@en ;
+    rdfs:seeAlso pds:Camera .
+
+pds:ImagingSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that combines the functions of a spectrometer and an imager - i.e., it captures and stores multiple images, each at a slightly different wavelength."@en ;
+    rdfs:label "Imaging Spectrometer"@en .
+
+pds:InertialMeasurementUnit rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures changes in its own velocity and orientation by using a combination of accelerometers, gyroscopes, and/or other devices."@en ;
+    rdfs:label "Inertial Measurement Unit"@en .
+
+pds:InfraredSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the spectral distribution of infrared radiation."@en ;
+    rdfs:label "Infrared Spectrometer"@en .
+
+pds:LaserInducedBreakdownSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that uses an active laser to generate a plasma from a target and then measures the energy spectrum of the evolved plasma."@en ;
+    rdfs:label "Laser Induced Breakdown Spectrometer"@en .
+
+pds:Magnetometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the strength and/or direction of a magnetic field."@en ;
+    rdfs:label "Magnetometer"@en .
+
+pds:MassSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the number of particles in a sample as a function of their mass."@en ;
+    rdfs:label "Mass Spectrometer"@en .
+
+pds:MicrowaveSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the spectral distribution of microwave radiation."@en ;
+    rdfs:label "Microwave Spectrometer"@en .
+
+pds:MoessbauerSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that uses the Mossbauer effect to determine the abundance of Fe-bearing minerals in a sample."@en ;
+    rdfs:label "Moessbauer Spectrometer"@en .
+
+pds:NakedEye rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "Observations made with the naked eye and recorded in a data product."@en ;
+    rdfs:label "Naked Eye"@en .
+
+pds:NeutralParticleDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that detects and/or measures neutral particles."@en ;
+    rdfs:label "Neutral Particle Detector"@en .
+
+pds:NeutronDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the number and/or energy distribution of neutrons."@en ;
+    rdfs:label "Neutron Detector"@en .
+
+pds:Photometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures radiation intensity (e.g., of visible light), sometimes with the goal of inferring optical properties of materials illuminated by the source and observed by the photometer."@en ;
+    rdfs:label "Photometer"@en .
+
+pds:PlasmaAnalyzer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the spectral distribution of energy in a low-frequency plasma."@en ;
+    rdfs:label "Plasma Analyzer"@en .
+
+pds:PlasmaDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that detects and/or measures low energy charged particles."@en ;
+    rdfs:label "Plasma Detector"@en .
+
+pds:PlasmaWaveSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the energy distribution in a low-frequency plasma."@en ;
+    rdfs:label "Plasma Wave Spectrometer"@en .
+
+pds:Polarimeter rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the polarization of electromagnetic radiation."@en ;
+    rdfs:label "Polarimeter"@en .
+
+pds:Radar rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that transmits and receives radio signals for the purpose of detecting, determining the range (distance) to, velocity of, and/or direction of one or more distant targets."@en ;
+    rdfs:label "Radar"@en .
+
+pds:RadioScience rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument suite used to conduct measurements at radio frequencies."@en ;
+    rdfs:label "Radio Science"@en .
+
+pds:RadioSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the spectral distribution of electromagnetic radiation at radio frequencies."@en ;
+    rdfs:label "Radio Spectrometer"@en .
+
+pds:RadioTelescope rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument used to focus and capture radio waves."@en ;
+    rdfs:label "Radio Telescope"@en .
+
+pds:Radiometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument which measures the radiant flux of electromagnetic radiation."@en ;
+    rdfs:label "Radiometer"@en .
+
+pds:Reflectometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the reflectance of surfaces. An electron reflectometer measures the properties of electrons trapped along magnetic field lines to infer the strength and direction of the field remotely."@en ;
+    rdfs:label "Reflectometer"@en .
+
+pds:RoboticArm rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "A tool used to place in-situ instruments on surface rocks or soil, dig into a surface, and/or to collect surface samples for other instruments to analyze on a spacecraft."@en ;
+    rdfs:label "Robotic Arm"@en .
+
+pds:SpectrographImager owl:equivalentClass pds:ImagingSpectrometer .
+
+pds:Spectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument used to measure properties over a specific portion of a spectrum - for example, a mass spectrometer measures the number of particles in discrete mass ranges, and a radio spectrometer measures the amount of electromagnetic radiation as a function of frequency or wavelength."@en ;
+    rdfs:label "Spectrometer"@en .
+
+pds:ThermalImager rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that captures an image at thermal infrared wavelengths."@en ;
+    rdfs:label "Thermal Imager"@en .
+
+pds:ThermalProbe rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An in situ instrument that measures thermal properties (e.g., temperature) at one or more points along its length."@en ;
+    rdfs:label "Thermal Probe"@en .
+
+pds:Thermometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures temperature."@en ;
+    rdfs:label "Thermometer"@en .
+
+pds:UltravioletSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the spectral distribution of ultraviolet radiation."@en ;
+    rdfs:label "Ultraviolet Spectrometer"@en .
+
+pds:WeatherStation rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that collects data for the scientific study of weather and weather-related phenomena such as (but not limited to) temperature, pressure, wind speed, wind direction, etc."@en ;
+    rdfs:label "Weather Station"@en .
+
+pds:WetChemistryLaboratory rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that mixes soil samples with solutions to measure material properties such as pH, conductivity, oxidation-reduction potential, etc."@en ;
+    rdfs:label "Wet Chemistry Laboratory"@en .
+
+pds:XrayDetector rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that detects and/or measures X-rays."@en ;
+    rdfs:label "X-ray Detector"@en .
+
+pds:XrayDiffractionSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that uses a beam of X-rays to probe the internal structure of a powdered sample and identify its mineral composition."@en ;
+    rdfs:label "X-ray Diffraction Spectrometer"@en .
+
+pds:XrayFluorescenceSpectrometer rdfs:subClassOf pds:InstrumentPDS4 ;
+    rdfs:comment "An instrument that measures the emission of secondary X-rays to determine the elemental composition of a sample that has been irradiated with primary X-rays."@en ;
+    rdfs:label "X-ray Fluorescence Spectrometer"@en .
+
+
+pds:Polarimeter rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Polarimeter"@en .
+
+pds:Radiometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radiometer"@en .
+
+pds:ReflectanceSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Reflectance Spectrometer"@en .
+
+pds:3colorPushbroomImager rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "3-color Pushbroom Imager"@en .
+
+pds:Abrader rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Abrader"@en .
+
+pds:Accelerometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Accelerometer"@en .
+
+pds:AcousticSensor rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Acoustic Sensor"@en .
+
+pds:Anemometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Anemometer"@en .
+
+pds:Antennae rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Antennae"@en .
+
+pds:AtmosphericProfiler rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Atmospheric Profiler"@en .
+
+pds:AttitudeControlSystem rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Attitude Control System"@en .
+
+pds:Altimeter rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Altimeter"@en .
+
+pds:Barometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Barometer"@en .
+
+pds:BetaDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Beta Detector"@en .
+
+pds:Bolometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Bolometer"@en .
+
+pds:CalorimeterSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Calorimeter/Spectrometer"@en .
+
+pds:Camera rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Camera"@en .
+
+pds:CCD rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "CCD"@en .
+
+pds:CCDCamera rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "CCD Camera"@en .
+
+pds:CCDSpectrograph rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "CCD/Spectrograph"@en .
+
+pds:ChargedParticleAnalyzer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Charged Particle Analyzer"@en .
+
+pds:ChargedParticleTelescope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Charged Particle Telescope"@en .
+
+pds:Computation rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Computation"@en .
+
+pds:CosmicDustAnalyzer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Cosmic Dust Analyzer"@en .
+
+pds:CosmicRayDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Cosmic Dust Detector"@en .
+
+pds:DetectorArray rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Detector Array"@en .
+
+pds:Dosimeter rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Dosimeter"@en .
+
+pds:Drill rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Drill"@en .
+
+pds:DustDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Dust Detector"@en .
+
+pds:DustImpactDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Dust Impact Detector"@en .
+
+pds:DustSampleCollector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Dust Sample Collector"@en .
+
+pds:ElectrodeCollector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Electrode Collector"@en .
+
+pds:ElectronReflectometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Electron Reflectometer"@en .
+
+pds:ElectronSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Electron Spectrometer"@en .
+
+pds:Electronics rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Electronics"@en .
+
+pds:ElectrostaticAnalyzer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Electrostatic Analyzer"@en .
+
+pds:EnergeticParticleDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Energetic Particle Detector"@en .
+
+pds:EnvironmentalStation rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Environmental Station"@en .
+
+pds:Eye rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Eye"@en .
+
+pds:FaradayCup rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Faraday Cup"@en .
+
+pds:FluxgateMagnetometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Fluxgate Magnetometer"@en .
+
+pds:FluxgateSensor rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Fluxgate Sensor"@en .
+
+pds:FrameCcdReflectingTelescope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Frame CCD Reflecting Telescope"@en .
+
+pds:FrameCcdRefractingTelescope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Frame CCD Refracting Telescope"@en .
+
+pds:FramingCamera rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Framing Camera"@en .
+
+pds:GammaRaySpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Gamma Ray Spectrometer"@en .
+
+pds:GammaRayBurstDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Gamma Ray Burst Detector"@en .
+
+pds:GasDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Gas Detector"@en .
+
+pds:GeothermalHeatFlowProbe rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Geothermal Heat Flow Probe"@en .
+
+pds:GammaRayDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Gamma Ray Detector"@en .
+
+pds:HighEnergyParticleDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "High Energy Particle Detector"@en .
+
+pds:housekeeping rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Housekeeping"@en .
+
+pds:hygrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Hygrometer"@en .
+
+pds:Imager rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Imager"@en .
+
+pds:ImagingCamera rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Imaging Camera"@en .
+
+pds:ImagingScienceSubsystem rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Imaging Science Subsystem"@en .
+
+pds:ImagingSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Imaging Science Subsystem"@en .
+
+pds:InSituMeteorology rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "In-Situ Meteorology"@en .
+
+pds:InertialMeasurementUnit rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Inertial Measurement Unit"@en .
+
+pds:InfraredImager rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Infrared Imager"@en .
+
+pds:InfraredImagingDevice rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Infrared Imaging Device"@en .
+
+pds:InfraredImagingSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Infrared Imaging Spectrometer"@en .
+
+pds:InfraredInterferometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Infrared Interferometer"@en .
+
+pds:InfraredPhotometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Infrared Photometer"@en .
+
+pds:InfraredPolarimeter rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Infrared Polarimeter"@en .
+
+pds:InfraredSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Infrared Spectrometer"@en .
+
+pds:IonMassSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Ion Mass Spectrometer"@en .
+
+pds:Imager rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Imager"@en .
+
+pds:ImagingSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Imaging Spectrometer"@en .
+
+pds:LaserAltimeter rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Laser Altimeter"@en .
+
+pds:LaserRangefinder rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Laser Rangefinder"@en .
+
+pds:Lidar rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Lidar"@en .
+
+pds:LinearArrayCamera rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Linear Array Camera"@en .
+
+pds:LowFrequencyRadioArray rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Low-Frequency Radio Array"@en .
+
+pds:MagnetometerElectronReflector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Magnetometer Electron Reflector"@en .
+
+pds:MagnetosphericImaging rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Magnetospheric Imaging"@en .
+
+pds:MassSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Mass Spectrometer"@en .
+
+pds:MaterialPropertySensor rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Material Property Sensor"@en .
+
+pds:Meteorology rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Meteorology"@en .
+
+pds:Microscope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Meteorology"@en .
+
+pds:NA rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "N/A"@en .
+
+pds:Nephelometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Nephelometer"@en .
+
+pds:NeutralParticleDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Neutral Particle Detector"@en .
+
+pds:NeutronSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Neutron Spectrometer"@en .
+
+pds:OpticalScanningRadiometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Optical Scanning Radiometer"@en .
+
+pds:OpticalSpectrograph rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Optical Spectrograph"@en .
+
+pds:OpticalTelescope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Optical Telescope"@en .
+
+pds:ParticleCounter rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Particle Counter"@en .
+
+pds:ParticleDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Particle Detector"@en .
+
+pds:ParticleTelescope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Particle Telescope"@en .
+
+pds:PhotoelectricPhotometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Photoelectric Photometer"@en .
+
+pds:Photometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Photometer"@en .
+
+pds:Photomultiplier rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Photomultiplier"@en .
+
+pds:Photopolarimeter rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Photopolarimeter"@en .
+
+pds:PhotopolarimeterRadiometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Photopolarimeter Radiometer"@en .
+
+pds:PlasmaExperiment rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Plasma Experiment"@en .
+
+pds:PlasmaInstrument rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Plasma Instrument"@en .
+
+pds:PlasmaWave rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Plasma Wave"@en .
+
+pds:PlasmaWaveSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Plasma Wave Spectrometer"@en .
+
+pds:Probe rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Probe"@en .
+
+pds:PlasmaAnalyzer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Plasma Analyzer"@en .
+
+pds:QuadrapoleMassSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Quadrapole Mass Spectrometer"@en .
+
+pds:QuadrupoleMassSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Quadrupole Mass Spectrometer"@en .
+
+pds:Radar rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radar"@en .
+
+pds:RadarAntenna rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radar Antenna"@en .
+
+pds:RadarMapper rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radar Mapper"@en .
+
+pds:RadarReceiver rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radar Receiver"@en .
+
+pds:RadarTransmitter rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radar Transmitter"@en .
+
+pds:RadarTransmitterReceiver rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radar Transmitter/Receiver"@en .
+
+pds:RadioAndPlasmaWaveScience rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radio and Plasma Wave Science"@en .
+
+pds:RadioScience rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radio Science"@en .
+
+pds:RadioScienceTransponder rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radio Science Transponder"@en .
+
+pds:RadioSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radio Spectrometer"@en .
+
+pds:RadioTelescope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radio Telescope"@en .
+
+pds:RadiometerSpectrophotometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radiometer Spectrophotometer"@en .
+
+pds:ReferenceData rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Reference Data"@en .
+
+pds:RelfectanceSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Relfectance Spectrometer"@en .
+
+pds:RetardingPotentialAnalyzer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Retarding Potential Analyzer"@en .
+
+pds:RoboticArm rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Robotic Arm"@en .
+
+pds:Radio rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radio"@en .
+
+pds:Radiometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Radiometer"@en .
+
+pds:ScanningProbeMicroscope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Scanning Probe Microscope"@en .
+
+pds:SoilStrengthAnalyzer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Soil Strength Analyzer"@en .
+
+pds:SpectralImager rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Spectral Imager"@en .
+
+pds:Spectrograph rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Spectrograph"@en .
+
+pds:Spectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Spectrometer"@en .
+
+pds:SpectrometricCoronagraph rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Spectrometric Coronagraph"@en .
+
+pds:Spectroreflectometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Spectroreflectometer"@en .
+
+pds:StarScanner rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Star Scanner"@en .
+
+pds:SynthesizedArray rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Synthesized Array"@en .
+
+pds:Telescope rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Telescope"@en .
+
+pds:ThermalInfraredSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Thermal Infrared Spectrometer"@en .
+
+pds:Thermistor rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Thermistor"@en .
+
+pds:Thermometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Thermometer"@en .
+
+pds:TotalPowerDetector rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Total Power Detector"@en .
+
+pds:UltravioletSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Ultraviolet Spectrometer"@en .
+
+pds:Unknown rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Unk"@en ;
+    rdfs:label "Unknown"@en .
+
+pds:UvVisibleSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "UV-Visible Spectrometer"@en .
+
+pds:VidiconCamera rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Vidicon Camera"@en .
+
+pds:VisibleSpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Visible Spectrometer"@en .
+
+pds:VisibleInfraredSpectrograph rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Visible/Infrared Spectrograph"@en .
+
+pds:VisualCount rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Visual Count"@en .
+
+pds:WideFieldCamera rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "Visual Count"@en .
+
+pds:XraySpectrometer rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "X-ray Spectrometer"@en .
+
+pds:Nil rdfs:subClassOf pds:InstrumentPDS3 ;
+    rdfs:label "None"@en .
