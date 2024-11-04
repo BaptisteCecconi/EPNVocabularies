@@ -808,6 +808,12 @@ class Vocabulary(object):
         defaults.update(meta)
         meta = defaults
 
+        if "previous" not in meta.keys():
+            meta["previous"] = ""
+
+        if "prefix" not in meta.keys():
+            meta["prefix"] = ""
+
         for key, value in meta.items():
             setattr(self, key, value)
 
