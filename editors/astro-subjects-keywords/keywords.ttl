@@ -1,0 +1,2022 @@
+@base <http://voparis-ns.obspm.fr/rdf/editors/astro-subjects-keywords>.
+@prefix : <#>.
+
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ivoasem: <http://www.ivoa.net/rdf/ivoasem#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+
+<> a owl:Ontology ;
+    owl:versionInfo <http://voparis-ns.obspm.fr/rdf/editors/aanda-keywords/2024-04-11/aanda-keywords> ;
+    dc:created "2024-04-11" ;
+    dc:creator [ foaf:name "Cecconi, B." ] ,
+        [ foaf:name "Besse, S."] ,
+        [ foaf:name "PDS4" ] ;
+    dc:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    rdfs:label "Astronomical Subject Keywords"@en;
+    dc:title "Astronomical Subject Keywords"@en;
+    dc:description """The editors of many astronomy journals (ApJ, AJ, A&A, MNRAS, PASP, PASJ, and RMxAA) have
+    adopted these subject keywords as a means of classifying articles in the journals. Revisions and updating
+    are made by agreement among the editors. If you feel that the list lacks an important heading, or that other
+    revisions are needed, you may send an e-mail message to the AAS at publications@aas.org.
+
+    Authors should select subject keywords for their manuscripts using the list given below. The keywords should
+    be listed in alphabetical order after the abstract. No more than six keywords should be given (and if
+    keywords are used for individual stars, galaxies, etc., each object normally counts as one keyword). The
+    overall categories should not be included. Do not include any part of a keyword that is in parentheses
+    (marked in italic in the list): for instance, “(stars:) binaries (including multiple): close” should be
+    given as “binaries: close”. Headings such as “galaxies: individual (...)” should include the individual names
+    in parentheses, as shown in the following example."""@en ;
+    ivoasem:vocflavour "SKOS" .
+
+dc:created a owl:AnnotationProperty.
+dc:creator a owl:AnnotationProperty.
+dc:title a owl:AnnotationProperty.
+dc:description a owl:AnnotationProperty.
+
+<> skos:hasTopConcept <#general> ,
+    <#physical-data-and-processes> ,
+    <#astronomical-instrumentation-methods-and-techniques> ,
+    <#astronomical-data-bases> ,
+    <#astrometry-and-celestial-mechanics> ,
+    <#the-sun> ,
+    <#planetary-systems> ,
+    <#stars> ,
+    <#interstellar-medium-nebulae> ,
+    <#the-galaxy> ,
+    <#galaxies> ,
+    <#cosmology> ,
+    <#sources-as-a-function-of-wavelength>
+.
+
+<#general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "General"@en .
+
+<#editorials-notices> a skos:Concept ;
+    skos:broader <#general>;
+    skos:prefLabel "Editorials Notices"@en .
+
+<#errata-addenda> a skos:Concept ;
+    skos:broader <#general>;
+    skos:prefLabel "Errata, Addenda"@en .
+
+<#extraterrestrial-intelligence> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Extraterrestrial intelligence"@en ;
+    skos:broader <#general> .
+
+<#history-and-philosophy-of-astronomy> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "History and philosophy of astronomy"@en ;
+    skos:broader <#general> .
+
+<#miscellaneous> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Miscellaneous"@en ;
+    skos:broader <#general> .
+
+<#obituaries-biographies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Obituaries, biographies"@en ;
+    skos:broader <#general> .
+
+<#publications-bibliography> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Publications, bibliography"@en ;
+    skos:broader <#general> .
+
+<#sociology-of-astronomy> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sociology of Astronomy"@en ;
+    skos:broader <#general> .
+
+<#standards> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Standards"@en ;
+    skos:broader <#general> .
+
+<#physical-data-and-processes> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Physical data and processes"@en .
+
+<#asteroseismology> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Asteroseismology"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#astrobiology> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Astrobiology"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#astrochemistry> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Astrochemistry"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#acceleration-of-particles> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Acceleration of particles"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#accretion-accretion-disks> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Accretion, accretion disks"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#astroparticle-physics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Astroparticle physics"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#atomic-data> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Atomic data"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#atomic-processes> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Atomic processes"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#black-hole-physics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Black hole physics"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#chaos> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Chaos"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#conduction> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Conduction"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#convection> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Convection"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#dense-matter> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Dense matter"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#diffusion> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Diffusion"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#dynamo> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Dynamo"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#elementary-particles> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Elementary particles"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#equation-of-state> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Equation of state"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#gravitation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gravitation"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#gravitational-lensing-strong> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gravitational lensing: strong"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#gravitational-lensing-weak> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gravitational lensing: weak"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#gravitational-lensing-micro> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gravitational lensing: micro"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#gravitational-waves> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gravitational waves"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#hydrodynamics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Hydrodynamics"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#instabilities> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instabilities"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#line-formation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Line: formation"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#line-identification> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Line: identification"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#line-profiles> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Line: profiles"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#magnetic-fields> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Magnetic fields"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#magnetic-reconnection> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Magnetic reconnection"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#magnetohydrodynamics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Magnetohydrodynamics"@en ;
+    skos:altLabel "MHD"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#masers> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Masers"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#molecular-data> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Molecular data"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#molecular-processes> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Molecular processes"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#neutrinos> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Neutrinos"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#nuclear-reactions-nucleosynthesis-abundances> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Nuclear reactions, nucleosynthesis, abundances"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#opacity> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Opacity"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#plasmas> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Plasmas"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#polarization> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Polarization"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#radiation-dynamics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radiation: dynamics"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#radiation-mechanisms-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radiation mechanisms: general"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#radiation-mechanisms-non-thermal> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radiation mechanisms: non-thermal"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#radiation-mechanisms-thermal> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radiation mechanisms: thermal"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#radiative-transfer> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radiative transfer"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#relativistic-processes> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Relativistic processes"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#scattering> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Scattering"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#shock-waves> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Shock waves"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#solid-state-volatile> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Solid state: volatile"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#solid-state-refractory> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Solid state: refractory"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#turbulence> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Turbulence"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#waves> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Waves"@en ;
+    skos:broader <#physical-data-and-processes> .
+
+<#astronomical-instrumentation-methods-and-techniques> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Astronomical instrumentation, methods and techniques"@en .
+
+<#atmospheric-effects> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Atmospheric effects"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#balloons> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Balloons"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#instrumentation-adaptive-optics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instrumentation: adaptive optics"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#instrumentation-detectors> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instrumentation: detectors"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#instrumentation-high-angular-resolution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instrumentation: high angular resolution"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#instrumentation-interferometers> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instrumentation: interferometers"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#instrumentation-miscellaneous> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instrumentation: miscellaneous"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#instrumentation-photometers> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instrumentation: photometers"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#instrumentation-polarimeters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instrumentation: polarimeters"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#instrumentation-spectrographs> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Instrumentation: spectrographs"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#light-pollution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Light pollution"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-analytical> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: analytical"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-data-analysis> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: data analysis"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-laboratory-atomic> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: laboratory: atomic"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-laboratory-molecular> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: laboratory: molecular"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-laboratory-solid-state> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: laboratory: solid state"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-miscellaneous> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: miscellaneous"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-numerical> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: numerical"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-observational> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: observational"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#methods-statistical> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Methods: statistical"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#site-testing> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Site testing"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#space-vehicles> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Space vehicles"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#space-vehicles-instruments> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Space vehicles: instruments"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-high-angular-resolution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: high angular resolution"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-image-processing> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: image processing"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-imaging-spectroscopy> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: imaging spectroscopy"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-interferometric> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: interferometric"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-miscellaneous> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: miscellaneous"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-photometric> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: photometric"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-polarimetric> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: polarimetric"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-radar-astronomy> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: radar astronomy"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-radial-velocities> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: radial velocities"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#techniques-spectroscopic> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Techniques: spectroscopic"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#telescopes> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Telescopes"@en ;
+    skos:broader <#astronomical-instrumentation-methods-and-techniques> .
+
+<#astronomical-data-bases> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Astronomical data bases"@en .
+
+<#astronomical-databases-miscellaneous> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Astronomical databases: miscellaneous"@en ;
+    skos:broader <#astronomical-data-bases> .
+
+<#atlases> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Atlases"@en ;
+    skos:broader <#astronomical-data-bases> .
+
+<#catalogs> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Catalogs"@en ;
+    skos:broader <#astronomical-data-bases> .
+
+<#surveys> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Surveys"@en ;
+    skos:broader <#astronomical-data-bases> .
+
+<#virtual-observatory-tools> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Virtual observatory tools"@en ;
+    skos:broader <#astronomical-data-bases> .
+
+<#astrometry-and-celestial-mechanics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Astrometry and celestial mechanics"@en .
+
+<#astrometry> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Astrometry"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#celestial-mechanics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Celestial mechanics"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#eclipses> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Eclipses"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#ephemerides> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Ephemerides"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#occultations> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Occultations"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#parallaxes> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Parallaxes"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#proper-motions> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Proper motions"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#reference-systems> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Reference systems"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#time> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Time"@en ;
+    skos:broader <#astrometry-and-celestial-mechanics> .
+
+<#the-sun> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "The Sun"@en .
+
+<#sun-abundances> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: abundances"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-activity> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: activity"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-atmosphere> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: atmosphere"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-chromosphere> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: chromosphere"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-corona> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: corona"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-coronal-mass-ejections> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: coronal mass ejections (CMEs)"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-evolution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: evolution"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-faculae-plages> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: faculae, plages"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-filaments-prominences> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: filaments, prominences"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-flares> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: flares"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-fundamental-parameters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: fundamental parameters"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: general"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-granulation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: granulation"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-helioseismology> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: helioseismology"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-heliosphere> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: heliosphere"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-infrared> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: infrared"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-interior> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: interior"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-magnetic-fields> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: magnetic fields"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-oscillations> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: oscillations"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-particle-emission> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: particle emission"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-photosphere> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: photosphere"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-radio-radiation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: radio radiation"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-rotation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: rotation"@en ;
+    skos:broader <#the-sun> .
+
+<#solar-terrestrial-relations> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "solar-terrestrial relations"@en ;
+    skos:broader <#the-sun> .
+
+<#solar-wind> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "solar wind"@en ;
+    skos:broader <#the-sun> .
+
+<#sunspots> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "sunspots"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-transition-region> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: transition region"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-uv-radiation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: UV radiation"@en ;
+    skos:broader <#the-sun> .
+
+<#sun-x-rays-gamma-rays> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Sun: X-rays, gamma rays"@en ;
+    skos:broader <#the-sun> .
+
+<#planetary-systems> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planetary systems"@en .
+
+<#comets-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Comets: general"@en ;
+    skos:broader <#planetary-systems> .
+
+<#comets-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Comets: individual (...)"@en ;
+    skos:broader <#planetary-systems> .
+
+<#earth> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Earth"@en ;
+    skos:broader <#planetary-systems> .
+
+<#interplanetary-medium> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Interplanetary medium"@en ;
+    skos:broader <#planetary-systems> .
+
+<#kuiper-belt-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Kuiper belt: general"@en ;
+    skos:broader <#planetary-systems> .
+
+<#kuiper-belt-objects-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Kuiper belt objects: individual (...)"@en ;
+    skos:broader <#planetary-systems> .
+
+<#meteorites-meteors-meteoroids> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Meteorites, meteors, meteoroids"@en ;
+    skos:broader <#planetary-systems> .
+
+<#minor-planets-asteroids-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Minor planets, asteroids: general"@en ;
+    skos:broader <#planetary-systems> .
+
+<#minor-planets-asteroids-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Minor planets, asteroids: individual (...)"@en ;
+    skos:broader <#planetary-systems> .
+
+<#moon> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Moon"@en ;
+    skos:broader <#planetary-systems> .
+
+<#oort-cloud> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Oort Cloud"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-atmospheres> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: atmospheres"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-aurorae> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: aurorae"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-composition> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: composition"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-detection> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: detection"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-dynamical-evolution-and-stability> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: dynamical evolution and stability"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-formation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: formation"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-fundamental-parameters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: fundamental parameters"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-gaseous-planets> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: gaseous planets"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: general"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: individual (...)"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-interiors> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: interiors"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-magnetic-fields> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: magnetic fields"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-physical-evolution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: physical evolution"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-rings> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: rings"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-surfaces> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: surfaces"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-tectonics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: tectonics"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planets-and-satellites-terrestrial-planets> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planets and satellites: terrestrial planets"@en ;
+    skos:broader <#planetary-systems> .
+
+<#protoplanetary-disks> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Protoplanetary disks"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planet-disk-interactions> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planet-disk interactions"@en ;
+    skos:broader <#planetary-systems> .
+
+<#planet-star-interactions> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planet-star interactions"@en ;
+    skos:broader <#planetary-systems> .
+
+<#zodiacal-dust> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Zodiacal dust"@en ;
+    skos:broader <#planetary-systems> .
+
+<#stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars"@en .
+
+<#stars-abundances> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: abundances"@en ;
+    skos:broader <#stars> .
+
+<#stars-activity> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: activity"@en ;
+    skos:broader <#stars> .
+
+<#stars-agb-and-post-agb> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: AGB and post-AGB"@en ;
+    skos:broader <#stars> .
+
+<#stars-atmospheres> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: atmospheres"@en ;
+    skos:broader <#stars> .
+
+<#binaries> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "binaries"@en ;
+    skos:broader <#stars> .
+
+<#binaries-close> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "binaries: close"@en ;
+    skos:broader <#stars> .
+
+<#binaries-eclipsing> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "binaries: eclipsing"@en ;
+    skos:broader <#stars> .
+
+<#binaries-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "binaries: general"@en ;
+    skos:broader <#stars> .
+
+<#binaries-spectroscopic> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "binaries: spectroscopic"@en ;
+    skos:broader <#stars> .
+
+<#binaries-symbiotic> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "binaries: symbiotic"@en ;
+    skos:broader <#stars> .
+
+<#binaries-visual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "binaries: visual"@en ;
+    skos:broader <#stars> .
+
+<#stars-black-holes> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: black holes"@en ;
+    skos:broader <#stars> .
+
+<#blue-stragglers> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Blue stragglers"@en ;
+    skos:broader <#stars> .
+
+<#brown-dwarfs> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Brown dwarfs"@en ;
+    skos:broader <#stars> .
+
+<#stars-carbon> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: carbon"@en ;
+    skos:broader <#stars> .
+
+<#stars-chemically-peculiar> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: chemically peculiar"@en ;
+    skos:broader <#stars> .
+
+<#stars-chromospheres> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: chromospheres"@en ;
+    skos:broader <#stars> .
+
+<#circumstellar-matter> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Circumstellar matter"@en ;
+    skos:broader <#stars> .
+
+<#stars-coronae> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: coronae"@en ;
+    skos:broader <#stars> .
+
+<#stars-distances> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: distances"@en ;
+    skos:broader <#stars> .
+
+<#stars-dwarf-novae> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: dwarf novae"@en ;
+    skos:broader <#stars> .
+
+<#stars-early-type> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: early-type"@en ;
+    skos:broader <#stars> .
+
+<#stars-emission-line-be> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: emission-line, Be"@en ;
+    skos:broader <#stars> .
+
+<#stars-evolution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: evolution"@en ;
+    skos:broader <#stars> .
+
+<#stars-flare> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: flare"@en ;
+    skos:broader <#stars> .
+
+<#stars-formation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: formation"@en ;
+    skos:broader <#stars> .
+
+<#stars-fundamental-parameters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: fundamental parameters"@en ;
+    skos:broader <#stars> .
+
+<#stars-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: general"@en ;
+    skos:broader <#stars> .
+
+<#gamma-ray-burst-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gamma-ray burst: general"@en ;
+    skos:broader <#stars> .
+
+<#gamma-ray-burst-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gamma-ray burst: individual (...)"@en ;
+    skos:broader <#stars> .
+
+<#hertzsprung-russell-and-c-m-diagrams> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Hertzsprung-Russell and C-M diagrams"@en ;
+    skos:broader <#stars> .
+
+<#stars-horizontal-branch> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: horizontal-branch"@en ;
+    skos:broader <#stars> .
+
+<#stars-imaging> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: imaging"@en ;
+    skos:broader <#stars> .
+
+<#stars-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: individual (...)"@en ;
+    skos:broader <#stars> .
+
+<#stars-interiors> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: interiors"@en ;
+    skos:broader <#stars> .
+
+<#stars-jets> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: jets"@en ;
+    skos:broader <#stars> .
+
+<#stars-kinematics-and-dynamics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: kinematics and dynamics"@en ;
+    skos:broader <#stars> .
+
+<#stars-late-type> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: late-type"@en ;
+    skos:broader <#stars> .
+
+<#stars-low-mass> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: low-mass"@en ;
+    skos:broader <#stars> .
+
+<#stars-luminosity-function-mass-function> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: luminosity function, mass function"@en ;
+    skos:broader <#stars> .
+
+<#stars-magnetars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: magnetars"@en ;
+    skos:broader <#stars> .
+
+<#stars-magnetic-field> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: magnetic field"@en ;
+    skos:broader <#stars> .
+
+<#stars-massive> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: massive"@en ;
+    skos:broader <#stars> .
+
+<#stars-mass-loss> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: mass-loss"@en ;
+    skos:broader <#stars> .
+
+<#stars-neutron> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: neutron"@en ;
+    skos:broader <#stars> .
+
+<#novae-cataclysmic-variables> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Novae, cataclysmic variables"@en ;
+    skos:broader <#stars> .
+
+<#stars-oscillations> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: oscillations (including pulsations)"@en ;
+    skos:broader <#stars> .
+
+<#stars-peculiar> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: peculiar (except chemically peculiar)"@en ;
+    skos:broader <#stars> .
+
+<#planetary-systems> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planetary systems"@en ;
+    skos:broader <#stars> .
+
+<#stars-population-ii> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: Population II"@en ;
+    skos:broader <#stars> .
+
+<#stars-population-iii> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: Population III"@en ;
+    skos:broader <#stars> .
+
+<#stars-pre-main-sequence> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: pre-main sequence"@en ;
+    skos:broader <#stars> .
+
+<#stars-protostars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: protostars"@en ;
+    skos:broader <#stars> .
+
+<#pulsars-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Pulsars: general"@en ;
+    skos:broader <#stars> .
+
+<#pulsars-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Pulsars: individual (...)"@en ;
+    skos:broader <#stars> .
+
+<#stars-rotation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: rotation"@en ;
+    skos:broader <#stars> .
+
+<#stars-solar-type> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: solar-type"@en ;
+    skos:broader <#stars> .
+
+<#starspots> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Starspots"@en ;
+    skos:broader <#stars> .
+
+<#stars-statistics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: statistics"@en ;
+    skos:broader <#stars> .
+
+<#subdwarfs> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Subdwarfs"@en ;
+    skos:broader <#stars> .
+
+<#supergiants> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Supergiants"@en ;
+    skos:broader <#stars> .
+
+<#supernovae-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Supernovae: general"@en ;
+    skos:broader <#stars> .
+
+<#supernovae-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Supernovae: individual (...)"@en ;
+    skos:broader <#stars> .
+
+<#stars-variables-cepheids> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: variables: Cepheids"@en ;
+    skos:broader <#stars> .
+
+<#stars-variables-delta-scuti> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: variables: delta Scuti"@en ;
+    skos:broader <#stars> .
+
+<#stars-variables-delta-scuti> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: variables: general"@en ;
+    skos:broader <#stars> .
+
+<#stars-variables-rr-lyrae> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: variables: RR Lyrae"@en ;
+    skos:broader <#stars> .
+
+<#stars-variables-s-doradus> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: variables: S Doradus"@en ;
+    skos:broader <#stars> .
+
+<#stars-variables-t-tauri-herbig-ae-be> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: variables: T Tauri, Herbig Ae/Be"@en ;
+    skos:broader <#stars> .
+
+<#white-dwarfs> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "White dwarfs"@en ;
+    skos:broader <#stars> .
+
+<#stars-winds-outflows> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: winds, outflows"@en ;
+    skos:broader <#stars> .
+
+<#stars-wolf-rayet> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Stars: Wolf-Rayet"@en ;
+    skos:broader <#stars> .
+
+<#interstellar-medium-nebulae> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Interstellar medium (ISM), nebulae"@en .
+
+<#ism-abundances> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: abundances"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-atoms> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: atoms"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-bubbles> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: bubbles"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-clouds> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: clouds"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#cosmic-rays> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Cosmic rays"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#dust-extinction> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Dust, extinction"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-evolution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: Evolution"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: general"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#hii-regions> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "HII regions"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#herbig-haro-objects> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Herbig-Haro objects"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-individual-objects> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: individual objects (...)"@en ;
+    skos:note "except planetary nebulae"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-jets-and-outflows> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: jets and outflows"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-kinematics-and-dynamics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: kinematics and dynamics"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-lines-and-bands> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: lines and bands"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-magnetic-fields> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: magnetic fields"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-molecules> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: molecules"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#planetary-nebulae-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planetary nebulae: general"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#planetary-nebulae-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Planetary nebulae: individual (...)"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#photon-dominated-region> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Photon-dominated region (PDR)"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-structure> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: structure"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#ism-supernova-remnants> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "ISM: supernova remnants"@en ;
+    skos:broader <#interstellar-medium-nebulae> .
+
+<#the-galaxy> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "The Galaxy"@en .
+
+<#galaxy-abundances> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: abundances"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-bulge> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: bulge"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-center> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: center"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-disk> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: disk"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-evolution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: evolution"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-formation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: formation"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-fundamental-parameters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: fundamental parameters"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: general"@en ;
+    skos:broader <#the-galaxy> .
+
+<#globular-clusters-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Globular clusters: general"@en ;
+    skos:broader <#the-galaxy> .
+
+<#globular-clusters-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Globular clusters: individual (...)"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-halo> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: halo"@en ;
+    skos:broader <#the-galaxy> .
+
+<#local-insterstellar-matter> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Local insterstellar matter"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-kinematics-and-dynamics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: kinematics and dynamics"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-nucleus> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: nucleus"@en ;
+    skos:broader <#the-galaxy> .
+
+<#open-clusters-and-associations-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Open clusters and associations: general"@en ;
+    skos:broader <#the-galaxy> .
+
+<#open-clusters-and-associations-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Open clusters and associations: individual (...)"@en ;
+    skos:broader <#the-galaxy> .
+
+<#solar-neighborhood> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Solar neighborhood"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-stellar-content> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: stellar content"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxy-structure> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxy: structure"@en ;
+    skos:broader <#the-galaxy> .
+
+<#galaxies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies"@en .
+
+<#galaxies-abundances> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: abundances"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-active> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: active"@en ;
+    skos:broader <#galaxies> .
+
+<#bl-lacertae-objects-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "BL Lacertae objects: general"@en ;
+    skos:broader <#galaxies> .
+
+<#bl-lacertae-objects-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "BL Lacertae objects: individual (...)"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-bulges> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: bulges"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-clusters-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: clusters: general"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-clusters-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: clusters: individual (...)"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-clusters-intracluster-medium> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: clusters: intracluster medium"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-distances-and-redshifts> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: distances and redshifts"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-dwarf> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: dwarf"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-elliptical-and-lenticular-cd> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: elliptical and lenticular, cD"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-evolution> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: evolution"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-formation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: formation"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-fundamental-parameters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: fundamental parameters"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: general"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-groups-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: groups: general"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-groups-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: groups: individual (...)"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-halos> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: halos"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-high-redshift> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: high-redshift"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: individual (...)"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-interactions> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: interactions"@en ;
+    skos:broader <#galaxies> .
+
+<#intergalactic-medium> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Intergalactic medium"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-irregular> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: irregular"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-ism> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: ISM"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-jets> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: jets"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-kinematics-and-dynamics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: kinematics and dynamics"@en ;
+    skos:broader <#galaxies> .
+
+<#local-group> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Local Group"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-luminosity-function-mass-function> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: luminosity function, mass function"@en ;
+    skos:broader <#galaxies> .
+
+<#magellanic-clouds> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Magellanic Clouds"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-magnetic-fields> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: magnetic fields"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-nuclei> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: nuclei"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-peculiar> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: peculiar"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-photometry> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: photometry"@en ;
+    skos:broader <#galaxies> .
+
+<#quasars-absorption-lines> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Quasars: absorption lines"@en ;
+    skos:broader <#galaxies> .
+
+<#quasars-emission-lines> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Quasars: emission lines"@en ;
+    skos:broader <#galaxies> .
+
+<#quasars-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Quasars: general"@en ;
+    skos:broader <#galaxies> .
+
+<#quasars-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Quasars: individual (...)"@en ;
+    skos:broader <#galaxies> .
+
+<#quasars-supermassive-black-holes> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Quasars: supermassive black holes"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-seyfert> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: Seyfert"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-spiral> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: spiral"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-starburst> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: starburst"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-star-clusters-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: star clusters: general"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-star-clusters-individual> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: star clusters: individual (...)"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-star-formation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: star formation"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-statistics> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: statistics"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-stellar-content> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: stellar content"@en ;
+    skos:broader <#galaxies> .
+
+<#galaxies-structure> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Galaxies: structure"@en ;
+    skos:broader <#galaxies> .
+
+<#cosmology> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Cosmology"@en .
+
+<#cosmic-background-radiation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Cosmic background radiation"@en ;
+    skos:broader <#cosmology> .
+
+<#cosmological-parameters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Cosmological parameters"@en ;
+    skos:broader <#cosmology> .
+
+<#cosmology-miscellaneous> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Cosmology: miscellaneous"@en ;
+    skos:broader <#cosmology> .
+
+<#cosmology-observations> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Cosmology: observations"@en ;
+    skos:broader <#cosmology> .
+
+<#cosmology-theory> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Cosmology: theory"@en ;
+    skos:broader <#cosmology> .
+
+<#dark-matter> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Dark matter"@en ;
+    skos:broader <#cosmology> .
+
+<#dark-energy> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Dark energy"@en ;
+    skos:broader <#cosmology> .
+
+<#diffuse-radiation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Diffuse radiation"@en ;
+    skos:broader <#cosmology> .
+
+<#distance-scale> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Distance scale"@en ;
+    skos:broader <#cosmology> .
+
+<#early-universe> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Early Universe"@en ;
+    skos:broader <#cosmology> .
+
+<#large-scale-structure-of-universe> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "large-scale structure of Universe"@en ;
+    skos:broader <#cosmology> .
+
+<#inflation> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Inflation"@en ;
+    skos:broader <#cosmology> .
+
+<#dark-ages-reionization-first-stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Dark ages, reionization, first stars"@en ;
+    skos:broader <#cosmology> .
+
+<#primordial-nucleosynthesis> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Primordial nucleosynthesis"@en ;
+    skos:broader <#cosmology> .
+
+<#sources-as-a-function-of-wavelength> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Resolved and unresolved sources as a function of wavelength"@en .
+
+<#gamma-rays-diffuse-background> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gamma rays: diffuse background"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#gamma-rays-galaxies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gamma rays: galaxies"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#gamma-rays-galaxies-clusters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gamma rays: galaxies: clusters"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#gamma-rays-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gamma rays: general"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#gamma-rays-ism> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gamma rays: ISM"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#gamma-rays-stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Gamma rays: stars"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#infrared-diffuse-background> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Infrared: diffuse background"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#infrared-galaxies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Infrared: galaxies"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#infrared-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Infrared: general"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#infrared-ism> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Infrared: ISM"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#infrared-planetary-systems> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Infrared: planetary systems"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#infrared-stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Infrared: stars"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-continuum-galaxies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio continuum: galaxies"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-continuum-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio continuum: general"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-continuum-ism> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio continuum: ISM"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-continuum-planetary-systems> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio continuum: planetary systems"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-continuum-stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio continuum: stars"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-lines-galaxies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio lines: galaxies"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-lines-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio lines: general"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-lines-ism> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio lines: ISM"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-lines-planetary-systems> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio lines: planetary systems"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#radio-lines-stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Radio lines: stars"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#submillimeter-diffuse-background> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Submillimeter: diffuse background"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#submillimeter-galaxies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Submillimeter: galaxies"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#submillimeter-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Submillimeter: general"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#submillimeter-ism> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Submillimeter: ISM"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#submillimeter-planetary-systems> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Submillimeter: planetary systems"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#submillimeter-stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Submillimeter: stars"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#ultraviolet-galaxies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Ultraviolet: galaxies"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#ultraviolet-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Ultraviolet: general"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#ultraviolet-ism> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Ultraviolet: ISM"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#ultraviolet-planetary-systems> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Ultraviolet: planetary systems"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#ultraviolet-stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "Ultraviolet: stars"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-binaries> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: binaries"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-bursts> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: bursts"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-diffuse-background> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: diffuse background"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-galaxies> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: galaxies"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-galaxies-clusters> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: galaxies: clusters"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-general> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: general"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-individuals> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: individual (...)"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-ism> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: ISM"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
+
+<#x-rays-stars> a skos:Concept ;
+    skos:definition ""@en ;
+    skos:prefLabel "X-rays: stars"@en ;
+    skos:broader <#sources-as-a-function-of-wavelength> .
