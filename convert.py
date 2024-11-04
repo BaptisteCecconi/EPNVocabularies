@@ -856,11 +856,16 @@ class Vocabulary(object):
             "name": self.name,
             "path": self.path,
             "timestamp": self.timestamp,
+            "previous": self.previous,
+            "prefix": self.prefix,
             "description": self.description,
             "authors": self.authors,
             "title": self.title,
             "flavour": self.flavour,
-            "licenseuri": self.licenseuri}
+            "licenseuri": self.licenseuri,
+            "version_iri": f"{self.baseuri}/{self.timestamp}",
+            "prior_version": f"{self.baseuri}/{self.previous}",
+        }
 
     def write_turtle(self):
         """writes a turtle representation of the vocabulary to
