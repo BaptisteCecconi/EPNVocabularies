@@ -563,7 +563,7 @@ class Term(object):
         and thus should always be used in preference to directly
         appending to relations.
         """
-        if not predicate in KNOWN_PREDICATES:
+        if predicate not in KNOWN_PREDICATES:
             raise ReportableError("Unknown predicate in ({}, {}, {})"
                 .format(self.term, predicate, object))
         self.relations.add((predicate, object))
