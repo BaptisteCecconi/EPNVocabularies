@@ -670,6 +670,7 @@ class Term(object):
                ("ivoasem:useInstead", "Use Instead"),
                ("ivoasem:deprecated", "Deprecated Term"),  # use owl:DeprecatedClass instead ?
                ("skos:exactMatch", "Same As"),
+               ("owl:equivalentClass", "Same As"),
                ("skos:related", "Related"),
                ("rdfs:seeAlso", "seeAlso"),
                ("built-in:narrower", "Narrower")]:
