@@ -955,6 +955,9 @@ class Vocabulary(object):
                 T.p["This is the description of the vocabulary ",
                     T.code[self.baseuri],
                 " as of {}.".format(self.timestamp)],
+                T.p["The previous version is available at ", T.a(href=self.baseuri+"/"+self.previous)[self.baseuri+"/"+self.previous], "."]
+                    if self.previous != ""
+                    else T.p["This is the first version of this vocabulary." ],
                 T.p(class_="draftwarning")["This vocabulary is not"
                     " yet approved by the IVOA.  This means that"
                     " terms can still disappear without prior notice."]
