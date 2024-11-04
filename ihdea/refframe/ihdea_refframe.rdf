@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:ivoasem="http://www.ivoa.net/rdf/ivoasem#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:geo="http://www.opengis.net/ont/geosparql#"
+   xmlns:daci="http://purl.org/datacite/v4.4/"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+  <owl:Ontology rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe">
+    <dc:description>A collection of reference frames in common use in astronomy,
+organised by top-level categories (equatorial, galactic, etc).  These
+concepts are used in VOTable's COOSYS, in SimpleDALRegExt's PosParam
+type, and of course in the Coords data model.  Where no more precise
+reference are given, http://www.iaufs.org/res.html is often of help.</dc:description>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dc:license rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label xml:lang="en">Reference Frames</rdfs:label>
+    <ivoasem:vocflavour>RDF Class</ivoasem:vocflavour>
+    <dc:title xml:lang="en">Reference Frames</dc:title>
+    <dc:created>2023-12-04</dc:created>
+    <dc:creator>
+      <foaf:Person>
+        <foaf:name>Demleitner, M.</foaf:name>
+      </foaf:Person>
+    </dc:creator>
+    <dc:creator>
+      <foaf:Person>
+        <foaf:name>Rots, A.</foaf:name>
+      </foaf:Person>
+    </dc:creator>
+    <dc:creator>
+      <foaf:Person>    
+        <foaf:name>Cresitello-Dittmar, M.</foaf:name>
+      </foaf:Person>
+    </dc:creator>
+    <dc:creator>
+      <foaf:Person>    
+        <foaf:name>Cecconi, B.</foaf:name>
+      </foaf:Person>
+    </dc:creator>
+    <dc:creator>
+      <foaf:Person>
+        <foaf:name>Weigel, R.</foaf:name>
+      </foaf:Person>
+    </dc:creator>
+  </owl:Ontology>
+  <!-- Initial IVOA set -->
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#BODY">
+    <rdfs:label>Body Coordinates</rdfs:label>
+    <rdfs:comment>Generic bodycentric coordinates. Data annotated in this way cannot be automatically combined with any other data.  Use or create more specific terms if at all possible.</rdfs:comment>
+  </rdfs:Class>
+  <owl:DeprecatedClass rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#galactic">
+    <ivoasem:deprecated>:__</ivoasem:deprecated>
+    <rdfs:comment>Old VOTable COOSYS term for GALACTIC.</rdfs:comment>
+    <ivoasem:useInstead rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GALACTIC"/>
+    <rdfs:label>Galactic</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GENERIC_GALACTIC"/>
+  </owl:DeprecatedClass>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#AZ_EL">
+    <rdfs:comment>Local azimuth and elevation. (Ground-based observations; Azimuth from North through East.)</rdfs:comment>
+    <rdfs:label>Azimuth/elevation</rdfs:label>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ICRS">
+    <rdfs:label>ICRS</rdfs:label>
+    <rdfs:comment>International Celestial Reference System as defined by 1998AJ....116..516M.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EQUATORIAL"/>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1086/300408"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarSystemCenteredFrame"/>
+  </rdfs:Class>
+  <owl:DeprecatedClass rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#geo_app">
+    <ivoasem:deprecated>:__</ivoasem:deprecated>
+    <rdfs:comment>An old VOTable COOSYS term, the meaning of which has been lost in time.</rdfs:comment>
+    <rdfs:label>(Obscure)</rdfs:label>
+  </owl:DeprecatedClass>  
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GALACTIC">
+    <rdfs:comment>Galactic coordinates, modern definition: Pole at precisely FK4 B1950 192.25, 27.4, origin at approximately FK4 B1950 265.55, -28.92.  See 1960MNRAS.121..123B for details.</rdfs:comment>
+    <rdfs:label>Galactic</rdfs:label>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1093/mnras/121.2.123"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GENERIC_GALACTIC"/>
+  </rdfs:Class>
+  <owl:DeprecatedClass rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#eq_FK4">
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EQUATORIAL"/>
+    <ivoasem:useInstead rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#FK4"/>
+    <ivoasem:deprecated>:__</ivoasem:deprecated>
+    <rdfs:label>FK4</rdfs:label>
+    <rdfs:comment>Old VOTable COOSYS term for FK4.</rdfs:comment>
+  </owl:DeprecatedClass>
+  <owl:DeprecatedClass rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ecl_FK5">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ECLIPTIC"/>
+    <rdfs:label>Ecliptic (FK5)</rdfs:label>
+    <ivoasem:useInstead rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ECLIPTIC"/>
+    <ivoasem:deprecated>:__</ivoasem:deprecated>
+    <rdfs:comment>Old VOTable COOSYS term ecliptic coordinates for the FK5 ecliptic (of J2000.0).</rdfs:comment>
+  </owl:DeprecatedClass>
+  <owl:DeprecatedClass rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#supergalactic">
+    <ivoasem:useInstead rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SUPER_GALACTIC"/>
+    <ivoasem:deprecated>:__</ivoasem:deprecated>
+    <rdfs:comment>Old VOTable COOSYS term for SUPER_GALACTIC</rdfs:comment>
+    <rdfs:label>Supergalactic</rdfs:label>
+  </owl:DeprecatedClass>
+  <owl:DeprecatedClass rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#barycentric">
+    <ivoasem:useInstead rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ICRS"/>
+    <rdfs:label>ICRS/Bary</rdfs:label>
+    <rdfs:comment>Old VOTable COOSYS term indicating ICRS at BARYCENTER reference position.  In the modern VO, refpos and refframe are no longer represented together.  Do not use this any more.</rdfs:comment>
+    <ivoasem:deprecated>:__</ivoasem:deprecated>
+  </owl:DeprecatedClass>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EQUATORIAL">
+    <rdfs:label>Equatorial</rdfs:label>
+    <rdfs:comment>Umbrella term of all equatorial frames.  Only use for old, pre-FK4 equatorial coordinates.</rdfs:comment>
+  </rdfs:Class>
+  <owl:DeprecatedClass rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#xy">
+    <rdfs:comment>Old VOTable COOSYS term for UNKNOWN</rdfs:comment>
+    <rdfs:label>Unknown reference frame</rdfs:label>
+    <ivoasem:deprecated>:__</ivoasem:deprecated>
+    <ivoasem:useInstead rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UNKNOWN"/>
+  </owl:DeprecatedClass>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UNKNOWN">
+    <rdfs:label>Unknown reference frame</rdfs:label>
+    <rdfs:comment>Unknown reference frame. Only to be used as a last resort or for simulations. Data annotated in this way cannot be automatically combined with any other data.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SUPER_GALACTIC">
+    <rdfs:comment>Supergalactic coordinates (pole at GALACTIC 47.37, +6.32, origin at GALACTIC 137.37, 0.</rdfs:comment>
+    <rdfs:label>Supergalactic</rdfs:label>
+  </rdfs:Class>
+  <owl:DeprecatedClass rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#eq_FK5">
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EQUATORIAL"/>
+    <ivoasem:deprecated>:__</ivoasem:deprecated>
+    <rdfs:comment>Old VOTable COOSYS term for FK5.</rdfs:comment>
+    <rdfs:label>FK5</rdfs:label>
+    <ivoasem:useInstead rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#FK5"/>
+  </owl:DeprecatedClass>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GENERIC_GALACTIC">
+    <rdfs:label>Galactic</rdfs:label>
+    <rdfs:comment>Umbrella term for Galactic coordinates.  If at all possible, use a more specific term, as historically, many different conventions have been in use.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GALACTIC_I">
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GENERIC_GALACTIC"/>
+    <rdfs:label>Old Galactic</rdfs:label>
+    <rdfs:comment>Old, pre-1958, Galactic coordinates.  See 1960MNRAS.121..123B for details.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#FK4">
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EQUATORIAL"/>
+    <rdfs:comment>Positions based on the 4th Fundamental Katalog. If no equinox is defined with this frame, assume B1950.0.</rdfs:comment>
+    <rdfs:label>FK4</rdfs:label>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ecl_FK4">
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ECLIPTIC"/>
+    <rdfs:label>Ecliptic (FK4)</rdfs:label>
+    <rdfs:comment>Old VOTable COOSYS term ecliptic coordinates for the FK4 ecliptic (of B1950.0).</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#FK5">
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EQUATORIAL"/>
+    <rdfs:comment>Positions based on the 5th Fundamental Katalog. If no equinox is defined with this frame, assume J2000.0.  Applications not requiring extremely high precision can identify FK5 at J2000 with ICRS.</rdfs:comment>
+    <rdfs:label>FK5</rdfs:label>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ECLIPTIC">
+    <rdfs:label>Ecliptic</rdfs:label>
+    <rdfs:comment>Ecliptic coordinates; the ecliptic of J2000.0 is assumed.</rdfs:comment>
+  </rdfs:Class>
+  <!-- SSIG / IHDEA proposal -->
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#67PCG_CSO">
+    <rdfs:label>Comet solar orbital centered on comet 67P/Churyumov–Gerasimenko</rdfs:label>
+    <rdfs:comment>The 67P/Churyumov–Gerasimenko Comet solar orbital frame is defined as a two-vector style dynamic frames as follows:
+ - The position of the sun relative to 67P is the primary vector: the X axis points from the comet to the sun.
+ - The inertially referenced velocity of the sun relative to 67P is the secondary vector: the Y axis is the component of this velocity vector orthogonal to the X axis.
+ -  The Z axis is X cross Y, completing the right-handed reference frame.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#Comet67PCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#67PCG_EME">
+    <rdfs:label>J2000 centered on comet 67P</rdfs:label>
+    <rdfs:comment>Same as #EME, but centered on comet 67P Churyumov-Gerasimenko</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#Comet67PCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#CPHIO">
+    <rdfs:label>Callisto Phi-Omega</rdfs:label>
+    <rdfs:comment>In this Cartesian coordinate system, X is along the flow direction, Y is along the Callisto-Jupiter vector, and Z is along the spin axis.
+These coordinates are analogous to the earth-centered GSE coordinates that relate to the direction of flow of the solar wind onto Earth's environment.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#CallistoCenteredFrame"/>
+    <rdfs:seeAlso rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GSE"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#DIIS">
+    <rdfs:label>Dione Inter-action coordinate System</rdfs:label>
+    <rdfs:comment>The Dione Inter-action coordinate System frame is defined as follows:
+  -  The inertially referenced velocity of Saturn relative to Dione is the primary vector: +X;
+  -  The position of Saturn relative to Dione is the secondary vector: +Y axis points from Dione to Saturn;
+  -  +Z axis completes the right-handed system;
+  -  the origin of this frame is Dione's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#DioneCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#DME">
+    <rdfs:label>Deimos Mean Equator</rdfs:label>
+    <rdfs:comment>The Deimos Mean Equator of Date frame (also known as Deimos Mean Equator and IAU vector of 
+      Date frame) is defined as follows :
+    -  X-Y plane is defined by the Deimos equator of date, and the +Z axis, primary vector of this frame, is parallel 
+       to the Moon's rotation axis of date, pointing toward the North side of the invariant plane;
+    -  +X axis is defined by the intersection of the Moon's equator of date with the Earth Mean Equator of J2000;
+    -  +Y axis completes the right-handed system;
+    -  the origin of this frame is Deimos' center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#DeimosCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#DSE">
+    <rdfs:label>Deimos-centric Solar Ecliptic</rdfs:label>
+    <rdfs:comment>The Deimos-centric Solar Ecliptic frame is defined as follows:
+  -  The position of the Sun relative to Deimos is the primary vector: +X axis points from Moon to the Sun;
+  -  The inertially referenced velocity of the Sun relative to Deimos is the secondary vector: +Y axis is the component 
+     of this velocity vector orthogonal to the +X axis;
+  -  +Z axis completes the right-handed system;
+  -  the origin of this frame is Deimos' center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#DeimosCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarEclipticFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ECLIPDATE">
+    <rdfs:label>Earth Mean Ecliptic and Equinox</rdfs:label>
+    <rdfs:comment>The Earth Mean Ecliptic and Equinox of Date frame is defined as follows:
+- +Z axis is aligned with the north-pointing vector normal to the mean orbital plane of the Earth;
+- +X axis points along the ''mean equinox'', which is defined as the intersection of the Earth's mean orbital plane with the Earth's mean equatorial plane. It is aligned with the cross product of the north-pointing vectors normal to the Earth's mean equator and mean orbit plane of date;
+- +Y axis is the cross product of the Z and X axes and completes the right-handed frame;
+-  the origin of this frame is the Earth's center of mass.
+  
+The mathematical model used to obtain the orientation of the Earth's mean equator and equinox of date frame is the 1976 IAU precession model, built into SPICE.
+  
+The mathematical model used to obtain the mean orbital plane of the Earth is the 1980 IAU obliquity model, also built into SPICE.
+  
+The base frame for the 1976 IAU precession model is J2000.
+    </rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ECLIPJ2000">
+    <rdfs:label>Ecliptic coordinates based upon the J2000 frame</rdfs:label>
+    <rdfs:comment>The value for the obliquity of the ecliptic at J2000 is taken from of 'Explanatory Supplement to the Astronomical Almanac' edited by P. Kenneth Seidelmann. University Science Books, 20 Edgehill Road, Mill Valley, CA 94941 (1992) page 114 equation 3.222-1</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME">
+    <rdfs:label>Earth Mean Equator and Equinox</rdfs:label>
+    <rdfs:comment>The Earth Mean Equator and Equinox of Date frame is defined as follows:
+  -  +Z axis is aligned with the north-pointing vector normal to the mean equatorial plane of the Earth;
+  -  +X axis points along the ''mean equinox'', which is defined as the intersection of the Earth's mean orbital plane with the Earth's mean equatorial plane. It is aligned with the cross product of the north-pointing vectors normal to the Earth's mean equator and mean orbit plane of date;
+  -  +Y axis is the cross product of the Z and X axes and completes the right-handed frame;
+  -  the origin of this frame is the Earth's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ENIS">
+    <rdfs:label>Enceladus Inter-action coordinate System</rdfs:label>
+    <rdfs:comment>The Moon Inter-action coordinate System frame is defined as follows:
+  -  The inertially referenced velocity of Saturn relative to Enceladus is the primary vector: +X;
+  -  The position of Saturn relative to Enceladus is the secondary vector: +Y axis points from Moon to Saturn;
+  -  +Z axis completes the right-handed system;
+  -  the origin of this frame is Enceladus' center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EPHIO">
+    <rdfs:label>Europa Phi-Omega</rdfs:label>
+    <rdfs:comment>In this Cartesian coordinate system, X is along the flow direction, Y is along the Europa-Jupiter vector, and Z is along the spin axis.
+These coordinates are analogous to the earth-centered GSE coordinates that relate to the direction of flow of the solar wind onto Earth's environment.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GSE"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GPHIO">
+    <rdfs:label>Ganymede Phi-Omega</rdfs:label>
+    <rdfs:comment>In this Cartesian coordinate system, X is along the flow direction, Y is along the Ganymede-Jupiter vector, and Z is along the spin axis.
+These coordinates are analogous to the earth-centered GSE coordinates that relate to the direction of flow of the solar wind onto Earth's environment</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GSE"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GRIGGSKELL_CSO">
+    <rdfs:label>Comet solar orbital centered on GRIGG-SKJELLERUP comet</rdfs:label>
+    <rdfs:comment>GRIGG-SKJELLERUP Solar Orbital frame is defined as a two-vector style dynamic frames as 
+      follows:
+  -  The position of the sun relative to the comet is the primary vector: the X axis points from the comet to the sun.
+  -  The inertially referenced velocity of the sun relative to the comet is the secondary vector: the Y axis is the 
+     component of this velocity vector orthogonal to the X axis.
+  -  The Z axis is X cross Y, completing the right-handed reference frame.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GRIGGSKELL_EME">
+    <rdfs:label>J2000 centered on Comet 26P/Grigg-Skjellerup</rdfs:label>
+    <rdfs:comment>Same as #EME (Earth mean equator, dynamical equinox of J2000) but centered on 
+      Comet 26P/Grigg-Skjellerup.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#Comet26PCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GSE">
+    <rdfs:label>Geocentric Solar Ecliptic</rdfs:label>
+    <rdfs:comment>The Earth-centric Solar Ecliptic frame is defined as follows :
+      -  X-Y plane is defined by the Earth Mean Ecliptic plane of date: the +Z axis, primary vector, is the normal 
+         vector to this plane, always pointing toward the North side of the invariant plane;
+      -  +X axis is the component of the Earth-Sun vector that is orthogonal to the +Z axis;
+      -  +Y axis completes the right-handed system;
+      -  the origin of this frame is the Sun's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SunCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GSEQ">
+    <rdfs:label>Geocentric Solar Equatorial</rdfs:label>
+    <rdfs:comment>The Geocentric Solar Equatorial frame is defined as follows :
+  - +X axis is the position of the Sun relative to the Earth; it's the primary vector and points from the Earth to the Sun;
+  - +Z axis is the component of the Sun's north pole of date orthogonal to the +X axis;
+  - +Y axis completes the right-handed reference frame;
+  - the origin of this frame is the Earth's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EarthCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GSM">
+    <rdfs:label>Geocentric Solar Magnetospheric</rdfs:label>
+    <rdfs:comment><![CDATA[A coordinate system where the X axis is from Earth to Sun, Z axis is northward in a plane 
+      containing the X axis and the geomagnetic dipole axis. See Russell, 1971
+  
+  Thus, +X is identical to `#GSE` +X and is the primary, and +Z is the secondary and is the MAG +Z.]]></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EarthCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#HALLEY_CSO">
+    <rdfs:label>Comet solar orbital centered on HALLEY comet</rdfs:label>
+    <rdfs:comment><![CDATA[Halley comeet solar orbital frame is defined as a two-vector style dynamic frames as follows:
+  -  The position of the sun relative to the comet is the primary vector: the X axis points from the comet to the sun.
+  -  The inertially referenced velocity of the sun relative to the comet is the secondary vector: the Y axis is the 
+     component of this velocity vector orthogonal to the X axis.
+  -  The Z axis is X cross Y, completing the right-handed reference frame.]]></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#Comet1PCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#HALLEY_EME">
+    <rdfs:label>J2000 centered on HALLEY comet</rdfs:label>
+    <rdfs:comment><![CDATA[Same as #EME (Earth mean equator, dynamical equinox of J2000) but centered on Halley 
+      comet.]]></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#Comet1PCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#HCI">
+    <rdfs:label>Heliocentric Inertial</rdfs:label>
+    <rdfs:comment><![CDATA[The Heliocentric Inertial Frame is defined as follows :
+  - X-Y plane is defined by the Sun's equator of epoch J2000: the +Z axis, primary vector, is parallel to the Sun's 
+    rotation axis of epoch J2000, pointing toward the Sun's north pole;
+  - +X axis is defined by the ascending node of the Sun's equatorial plane on the ecliptic plane of J2000;
+  - +Y completes the right-handed frame;
+  - the origin of this frame is the Sun's center of mass.]]></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SunCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#HEE">
+    <rdfs:label>Heliocentric Earth Ecliptic</rdfs:label>
+    <rdfs:comment><![CDATA[The Heliocentric Earth Ecliptic frame is defined as follows :
+  -  X-Y plane is defined by the Earth Mean Ecliptic plane of date, therefore, the +Z axis is the primary vector, and 
+     it is defined as the normal vector to the Ecliptic plane that points toward the north pole of date;
+  -  +X axis is the component of the Sun-Earth vector that is orthogonal to the +Z axis;
+  -  +Y axis completes the right-handed system;
+  -  the origin of this frame is the Sun's center of mass.]]></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SunCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#HEEQ">
+    <rdfs:label>Heliocentric Earth Equatorial</rdfs:label>
+    <rdfs:comment><![CDATA[The Heliocentric Earth Equatorial frame is defined as follows:
+  - X-Y plane is the solar equator of date, therefore, the +Z axis is the primary vector and it is aligned to the Sun's 
+    north pole of date;
+  - +X axis is defined by the intersection between the Sun equatorial plane and the solar central meridian of date as 
+    seen from the Earth. The solar central meridian of date is defined as the meridian of the Sun that is turned toward 
+    the Earth. Therefore, +X axis is the component of the Sun-Earth vector that is orthogonal to the +Z axis;
+  - +Y axis completes the right-handed system;
+  - the origin of this frame is the Sun's center of mass.]]></rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SunCenteredFrame"/>
+  </rdfs:Class> 
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_EARTH">
+    <rdfs:label>Earth-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for the Earth.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EarthCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_JUPITER">
+    <rdfs:label>Jupiter-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for Jupiter.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JupiterCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_MARS">
+    <rdfs:label>Mars-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for Mars.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MarsCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_MERCURY">
+    <rdfs:label>Mercury-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for Mercury.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MercuryCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_MOON">
+    <rdfs:label>Moon-Centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for the Moon (Earth natural satellite).</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MoonCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_NEPTUNE">
+    <rdfs:label>Neptune-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for Neptune.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#NeptuneCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_PLUTO">
+    <rdfs:label>Pluto-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for Pluto.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PlutoCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_SATURN">
+    <rdfs:label>Saturn-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for Saturn.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SaturnCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_SUN">
+    <rdfs:label>Sun-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for the Sun.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+<!-- 
+      <geo:asWKT>GEOGCRS["Sun (2015) - Sphere / Ocentric",
+  DATUM["Sun (2015) - Sphere",
+    ELLIPSOID["Sun (2015) - Sphere", 695700000, 0,
+	LENGTHUNIT["metre", 1, ID["EPSG", 9001]]]],
+    PRIMEM["Reference Meridian", 0,
+      ANGLEUNIT["degree", 0.0174532925199433, ID["EPSG", 9122]]],
+	CS[ellipsoidal, 2],
+	  AXIS["geodetic latitude (Lat)", north,
+	    ORDER[1],
+	    ANGLEUNIT["degree", 0.0174532925199433]],
+	  AXIS["geodetic longitude (Lon)", east,
+	    ORDER[2],
+	    ANGLEUNIT["degree", 0.0174532925199433]],
+	ID["IAU", 1000, 2015],
+	REMARK["Source of IAU Coordinate systems: doi://10.1007/s10569-017-9805-5"]]
+</geo:asWKT>
+-->
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SunCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_URANUS">
+    <rdfs:label>Uranus-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for Uranus.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UranusCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_VENUS">
+    <rdfs:label>Venus-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>IAU Frame for Venus.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="https://doi.org/10.1007/s10569-017-9805-5"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#VenusCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IPHIO">
+    <rdfs:label>Io Phi-Omega</rdfs:label>
+    <rdfs:comment>In this Cartesian coordinate system, X is along the flow direction, Y is along 
+the Io-Jupiter vector, and Z is along the spin axis.
+      
+These coordinates are analogous to the earth-centered GSE coordinates that relate to the direction 
+of flow of the solar wind onto Earth's environment.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IoCenteredFrame"/>
+    <rdfs:seeAlso rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GSE"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#J2000">
+    <rdfs:label>Earth mean equator, dynamical equinox of J2000</rdfs:label>
+    <rdfs:comment>Earth mean equator, dynamical equinox of J2000.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EarthCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JECLIP">
+    <rdfs:label>ECLIPJ2000 centered on Jupiter</rdfs:label>
+    <rdfs:comment>Same as `#ECLIPJ2000` but centered on Jupiter.
+      The value for the obliquity of the ecliptic at J2000 is taken from of 'Explanatory Supplement 
+      to the Astronomical Almanac' edited by P. Kenneth Seidelmann. University Science Books, 
+      20 Edgehill Road, Mill Valley, CA 94941 (1992) page 114 equation 3.222-1</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EarthCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JEME">
+    <rdfs:label>J2000 centered on Jupiter</rdfs:label>
+    <rdfs:comment>Same as #EME (Earth mean equator, dynamical equinox of J2000), but centered on 
+Jupiter</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JupiterCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JSM">
+    <rdfs:label>Jovian Solar Magnetospheric</rdfs:label>
+    <rdfs:comment>A coordinate system where the X axis is from Jupiter to Sun, Z axis is northward in a 
+plane containing the X axis and the Jovian dipole axis.
+      
+Dipole is 159 longitude and 80 latitude.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JupiterCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JSO">
+    <rdfs:label>Jovian Solar Orbital</rdfs:label>
+    <rdfs:comment>The Jupiter Solar Orbital frame is defined as follows: 
+ -  The position of the Sun relative to Jupiter is the primary vector: +X axis points from Jupiter 
+    to the Sun;
+ -  The inertially referenced velocity of the Sun relative to Jupiter is the secondary vector: +Y 
+    axis is the component of this velocity vector orthogonal to the +X axis;
+ -  +Z axis completes the right-handed system;
+ -  the origin of this frame is Jupiter center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JupiterCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#KECLIP">
+    <rdfs:label>ECLIPJ2000 centered on Saturn</rdfs:label>
+    <rdfs:comment>Same as #ECLIPJ2000 but centered on Saturn.
+The value for the obliquity of the ecliptic at J2000 is taken from of 'Explanatory Supplement to the 
+Astronomical Almanac' edited by P. Kenneth Seidelmann. University Science Books, 20 Edgehill Road, 
+Mill Valley, CA 94941 (1992) page 114 equation 3.222-1
+    </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SaturnCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#KEME">
+    <rdfs:label>J2000 centered on Saturn</rdfs:label>
+    <rdfs:comment>Same as #EME (Earth mean equator, dynamical equinox of J2000), but centered on 
+Saturn.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SaturnCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#KSM">
+    <rdfs:label>Kronian Solar Magnetospheric</rdfs:label>
+    <rdfs:comment>A coordinate system where the X axis is from Saturn to Sun, Z axis is northward in 
+a plane containing the X axis and the Kronian dipole axis.
+      
+NB: Some sources refers magnetic dipole at 180 degrees longitude, 89.99 degrees latitude in the 
+#IAU_SATURN frame. Other source make assume that the dipole axis is parallel to the spin axis.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SaturnCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#KSO">
+    <rdfs:label>Kronian Solar Orbital</rdfs:label>
+    <rdfs:comment>The Saturn Solar Orbital frame is defined as follows:
+ -  The position of the Sun relative to Saturn is the primary vector: +X axis points from Saturn to the Sun;
+ -  The inertially referenced velocity of the Sun relative to Saturn is the secondary vector: +Y axis is the 
+    component of this velocity vector orthogonal to the +X axis;
+ -  +Z axis completes the right-handed system;
+ -  the origin of this frame is Saturn center of mass.
+    </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SaturnCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#LME">
+    <rdfs:label>Moon Mean Equator</rdfs:label>
+    <rdfs:comment>The Moon Mean Equator of Date frame (also known as Moon Mean Equator and IAU vector of 
+Date frame) is defined as follows :
+ - X-Y plane is defined by the Moon equator of date, and the +Z axis, primary vector of this frame, is 
+   parallel to the Moon's rotation axis of date, pointing toward the North side of the invariant plane;
+ - +X axis is defined by the intersection of the Moon's equator of date with the Earth Mean Equator of J2000;
+ - +Y axis completes the right-handed system;
+      -  the origin of this frame is Moon's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MoonCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#LSE">
+    <rdfs:label>Selenocentric Solar Ecliptic</rdfs:label>
+    <rdfs:comment>The Moon-centric Solar Ecliptic frame is defined as follows:
+ - The position of the Sun relative to Moon is the primary vector: +X axis points from Moon to the Sun;
+ - The inertially referenced velocity of the Sun relative to Moon is the secondary vector: +Y axis is the 
+   component of this velocity vector orthogonal to the +X axis;
+ - +Z axis completes the right-handed system;
+ - the origin of this frame is Moon's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MoonCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#LUTETIA_CSO">
+    <rdfs:label>Solar orbital centered on asteroid LUTETIA</rdfs:label>
+    <rdfs:comment>Lutetia solar orbital frame is defined as a two-vector style dynamic frames as follows:
+ -  The position of the sun relative to the comet is the primary vector: the X axis points from the 
+    asteroid to the Sun.
+ -  The inertially referenced velocity of the sun relative to the asteroid is the secondary vector: the Y 
+    axis is the component of this velocity vector orthogonal to the X axis.
+ -  The Z axis is X cross Y, completing the right-handed reference frame.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#LutetiaCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#LUTETIA_EME">
+    <rdfs:label>J2000 centered on asteroid LUTETIA</rdfs:label>
+    <rdfs:comment>Same as `#EME` (Earth mean equator, dynamical equinox of J2000) but centered on 
+LUTETIA.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#LutetiaCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MAG">
+    <rdfs:label>Earth Geomagnetic coordinate system</rdfs:label>
+    <rdfs:comment>  Geomagnetic - geocentric. Z axis is parallel to the geomagnetic
+      dipole axis, positive north. X is in the plane defined by the Z axis
+      and the Earth's rotation axis. If N is a unit vector from the Earth's
+      center to the north geographic pole, the signs of the X and Y axes are
+      given by Y = N x Z, X = Y x Z.. See Russell, 1971
+      
+      
+      The implementation of this frame is complicated in that the definition
+      of the IGRF dipole is a function of time and the IGRF model cannot be
+      directly incorporated into Spice. However, Spice does allow one to define
+      time dependent Euler angles. Meaning, you can define an Euler angle
+      that rotates GEO to MAG for a given ephemeris time t:
+      
+      V           = r(t) * V
+      GEI                  MAG
+      
+      where r(t) is a time dependent Euler angle representation of a
+      rotation. Spice allows for the time dependence to be represented by a
+      polynomial expansion. This expansion can be fit using the IGRF model,
+      thus representing the IGRF dipole axis.
+      
+      IGRF-11 (the 11th version) was fit for the period of 1990-2020, which
+      should encompass the mission and will also make this kernel useful for
+      performing Magnetic dipole frame transformations for the 1990's and
+      the 2000's. However, IGRF-11 is not as accurate for this entire time
+      interval. The years between 1945-2005 are labeled definitive, although
+      only back to 1990 was used in the polynomial fit. 2005-2010 is
+      provisional, and may change with IGRF-12. 2010-2015 was only a
+      prediction. Beyond 2015, the predict is so far in the future as to not
+      be valid. So to make the polynomials behave nicely in this region (in
+      case someone does try to use this frame during that time), the
+      2015 prediction was extended until 2020. So for low precision, this
+      kernel can be used for the years 2015-2020. Any times less than 1990
+      and greater than 2020 were not used in the fit, and therefore may be
+      vastly incorrect as the polynomials may diverge outside of this region.
+      These coefficients will be refit when IGRF-12 is released.
+      
+      Also, since the rest of the magnetic dipole frames are defined from
+      this one, similar time ranges should be used for those frames.
+      
+      Definitive           Provisional   Predict    Not Valid
+      |------------------------------|+++++++++++|###########|???????????|
+      1990                           2005        2010        2015        2020
+      
+      In addition to the error inherit in the model itself, the polynomial
+      expansion cannot perfectly be fit the IGRF dipole. The maximum error
+      on the fit is .2 milliradians, or .01 degrees. 
+      
+      The MAG frame is achieved by first rotating the GEO frame about Z by
+      the longitude degrees, and then rotating about the Y axis by the
+      amount of latitude. This matches the new frame to Russell's definition.</rdfs:comment>
+    <daci:IsDescribedBy rdf:resource="http://rbsp.space.umn.edu/data/rbsp/teams/spice/fk/rbsp_general011.tf"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EarthCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MECLIP">
+    <rdfs:label>ECLIPJ2000 centered on Mercury</rdfs:label>
+    <rdfs:comment>Same as #ECLIPJ2000 but centered on Mercury.
+
+The value for the obliquity of the ecliptic at J2000 is taken from of 'Explanatory Supplement to the Astronomical 
+Almanac' edited by P. Kenneth Seidelmann. University Science Books, 20 Edgehill Road, Mill Valley, CA 94941 (1992) 
+page 114 equation 3.222-1</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MercuryCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MEME">
+    <rdfs:label>J2000 centered on Mercury</rdfs:label>
+    <rdfs:comment>Same as #EME (Earth mean equator, dynamical equinox of J2000) but centered on Mercury.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MercuryCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MESE">
+    <rdfs:label>Mercury-centric Solar Ecliptic</rdfs:label>
+    <rdfs:comment>The Mercury-centric Solar Ecliptic frame is defined as follows:
+ - X-Y plane is defined by the Earth Mean Ecliptic plane of date: the +Z axis, primary vector, is the normal 
+   vector to this plane,always pointing toward the North side of the invariant plane;
+ - +X axis is the component of the Mercury-Sun vector that is orthogonal to the +Z axis;
+ - +Y axis completes the right-handed system;
+ - the origin of this frame is the Sun's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MercuryCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MESEQ">
+    <rdfs:label>Mercury-centric Solar Equatorial</rdfs:label>
+    <rdfs:comment>The Mercury-centric Solar Equatorial frame is defined as follows :
+ - +X axis is the position of the Sun relative to the Mercury; it's the primary vector and points from the 
+   Mercury to the Sun;
+ - +Z axis is the component of the Sun's north pole of date orthogonal to the +X axis;
+ - +Y axis completes the right-handed reference frame;
+ - the origin of this frame is the Mercury's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MercuryCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MESO">
+    <rdfs:label>Mercury-centric Solar Orbital</rdfs:label>
+    <rdfs:comment>The Mercury Solar Orbital frame is defined as follows:
+ -  The position of the Sun relative to Mercury is the primary vector: +X axis points from Mercury to the Sun;
+ -  The inertially referenced velocity of the Sun relative to Mercury is the secondary vector: +Y axis is the 
+    component of this velocity vector orthogonal to the +X axis;
+ -  +Z axis completes the right-handed system;
+ -  the origin of this frame is Mercury center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MercuryCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MIIS">
+    <rdfs:label>Mimas Inter-action coordinate System</rdfs:label>
+    <rdfs:comment>The Mimas Inter-action coordinate System frame is defined as follows:
+ -  The inertially referenced velocity of Saturn relative to Mimas is the primary vector: +X;
+ -  The position of Saturn relative to Moon is the secondary vector: +Y axis points from Mimas to Saturn;
+ -  +Z axis completes the right-handed system;
+ -  the origin of this frame is Mimas' center of mass.
+    </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MimasCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MME">
+    <rdfs:label>Mars Mean Equator</rdfs:label>
+    <rdfs:comment>The Mars Mean Equator of Date frame (also known as Mars Mean Equator and IAU vector of 
+Date frame) is defined as follows:
+ - X-Y plane is defined by the Mars equator of date: the +Z axis, primary vector, is parallel to the Mars' 
+   rotation axis of date, pointing toward the North side of the invariant plane;
+ - +X axis is defined by the intersection of the Mars' equator of date with the J2000 equator;
+ - +Y axis completes the right-handed system;
+ - the origin of this frame is Mars' center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MarsCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MSO">
+    <rdfs:label>Mars-centric Solar Orbital</rdfs:label>
+    <rdfs:comment>The Mars Solar Orbital frame is defined as follows:
+ - The position of the Sun relative to Mars is the primary vector: +X axis points from Mars to the Sun;
+ - The inertially referenced velocity of the Sun relative to Mars is the secondary vector: +Y axis is the 
+   component of this velocity vector orthogonal to the +X axis;
+ - +Z axis completes the right-handed system;
+ - the origin of this frame is Mars' center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MarsCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#NECLIP">
+    <rdfs:label>ECLIPJ2000 centered on Neptune</rdfs:label>
+    <rdfs:comment>Same as `#ECLIPJ2000` but centered on Neptune.
+
+The value for the obliquity of the ecliptic at J2000 is taken from of 'Explanatory Supplement to the 
+Astronomical Almanac' edited by P. Kenneth Seidelmann. University Science Books, 20 Edgehill Road, Mill 
+Valley, CA 94941 (1992) page 114 equation 3.222-1</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#NeptuneCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#NEME">
+    <rdfs:label>J2000 centered on Neptune</rdfs:label>
+    <rdfs:comment>Same as #EME (Earth mean equator, dynamical equinox of J2000) but centered on 
+Neptune.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#NeptuneCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#NSO">
+    <rdfs:label>Neptune-centric Solar Orbital Coordinates</rdfs:label>
+    <rdfs:comment>The Neptune Solar Orbital frame is defined as follows:
+ - The position of the Sun relative to Neptune is the primary vector: +X axis points from Neptune to the Sun;
+ - The inertially referenced velocity of the Sun relative to Neptune is the secondary vector: +Y axis is 
+   the component of this velocity vector orthogonal to the +X axis;
+ - +Z axis completes the right-handed system;
+ - the origin of this frame is Neptune center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#NeptuneCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PECLIP">
+    <rdfs:label>ECLIPJ2000 centered on Pluto</rdfs:label>
+    <rdfs:comment>Same as `#ECLIPJ2000` but centered on Pluto.
+
+The value for the obliquity of the ecliptic at J2000 is taken from of 'Explanatory Supplement to the 
+Astronomical Almanac' edited by P. Kenneth Seidelmann. University Science Books, 20 Edgehill Road, Mill 
+Valley, CA 94941 (1992) page 114 equation 3.222-1
+    </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PlutoCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PEME">
+    <rdfs:label>EME2000 centered on Pluto</rdfs:label>
+    <rdfs:comment>Same as #EME (Earth mean equator, dynamical equinox of J2000) but centered on 
+Pluto.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PlutoCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PME">
+    <rdfs:label>Phobos Mean Equator</rdfs:label>
+    <rdfs:comment>The Phobos Mean Equator of Date frame (also known as Phobos Mean Equator and IAU vector 
+of Date frame) is defined as follows :
+ - X-Y plane is defined by the Phobos equator of date, and the +Z axis, primary vector of this frame, is 
+   parallel to the Moon's rotation axis of date, pointing toward the North side of the invariant plane;
+ - +X axis is defined by the intersection of the Moon's equator of date with the Earth Mean Equator of 
+   J2000;
+ - +Y axis completes the right-handed system;
+ - the origin of this frame is Phobos' center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PhobosCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PSE">
+    <rdfs:label>Phobos-centric Solar Ecliptic</rdfs:label>
+    <rdfs:comment>The Phobos-centric Solar Ecliptic frame is defined as follows:
+ - The position of the Sun relative to Phobos is the primary vector: +X axis points from Moon to the Sun;
+ - The inertially referenced velocity of the Sun relative to Phobos is the secondary vector: +Y axis is 
+   the component of this velocity vector orthogonal to the +X axis;
+ - +Z axis completes the right-handed system;
+ - the origin of this frame is Phobos' center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PhobosCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarEclipticFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PSO">
+    <rdfs:label>Pluto-centric Solar Orbital Coordinates</rdfs:label>
+    <rdfs:comment>The Pluto Solar Orbital frame is defined as follows:
+ - The position of the Sun relative to Pluto is the primary vector: +X axis points from Pluto to the Sun;
+ - The inertially referenced velocity of the Sun relative to Pluto is the secondary vector: +Y axis is 
+   the component of this velocity vector orthogonal to the +X axis;
+ - +Z axis completes the right-handed system;
+ - the origin of this frame is Pluto center of mass.
+    </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PlutoCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#RHIS">
+    <rdfs:label>Rhea Inter-action coordinate System</rdfs:label>
+    <rdfs:comment>The Rhea Inter-action coordinate System frame is defined as follows:
+      -  The inertially referenced velocity of Saturn relative to Rhea is the primary vector: +X;
+      -  The position of Saturn relative to Rhea is the secondary vector: +Y axis points from Rhea to Saturn;
+      -  +Z axis completes the right-handed system;
+      -  the origin of this frame is Rhea's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#RheaCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#RTN">
+    <rdfs:label>Sun-Spacecraft coordinate system</rdfs:label>
+    <rdfs:comment>RTN Frame is defined as follows:
+      - R is positive from the Sun to the spacecraft.
+      - T is omega cross R, where omega is the sun spin axis.
+      - N is R cross T, which completes the right-handed system.
+      
+This frame assumes the instantaneous center is located at the Sun, and not the spacecraft. Further, the axes are associated with the normal X, Y, and Z in the following manner:
+      - R -> X
+      - T -> Y
+      - N -> Z</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#RTP">
+    <rdfs:label>Planet-Spacecraft coordinate system</rdfs:label>
+    <rdfs:comment>The RTP frame is defined as follows:
+      - R is positive from the Planet to the spacecraft.
+      - T is omega cross R, where omega is the planet spin axis.
+      - P is R cross T, which completes the right-handed system.
+      
+This frame assumes the instantaneous center is located at planet and not the spacecraft. Further, the axes are associated with the normal X, Y, and Z in the following manner:
+      - R     -> X
+      - Theta -> Y
+      - Phi   -> Z</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SM">
+    <rdfs:label>Solar Magnetic coordinates</rdfs:label>
+    <rdfs:comment>A geocentric coordinate system where the Z axis is northward along Earth's dipole axis, X axis is in plane of z axis and Earth-Sun line, positive sunward. See Russell, 1971.
+      
+Thus, this is much like #GSM, except that now the +Z axis is the primary, meaning it is parallel to the dipole vector, and +X is the secondary. Since the X-Z plane is the same as #GSM's X-Z plane, the Y axis is the same as #GSM.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EarthCenteredFrame"/>
+    <rdfs:seeAlso rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#GSM"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#STEINS_CSO">
+    <rdfs:label>Solar orbital centered on asteroid STEINS</rdfs:label>
+    <rdfs:comment>Steins solar orbital frame is defined as a two-vector style dynamic frames as follows:
+      -  The position of the sun relative to the asteroid is the primary vector: the X axis points from the comet to the sun.
+      -  The inertially referenced velocity of the sun relative to the asteroid is the secondary vector: the Y axis is the component of this velocity vector orthogonal to the X axis.
+      -  The Z axis is X cross Y, completing the right-handed reference frame.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SteinsCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#STEINS_EME">
+    <rdfs:label>J2000 centered on asteroid STEINS</rdfs:label>
+    <rdfs:comment>Same as #EME (Earth mean equator, dynamical equinox of J2000) but centered on STEINS.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SteinsCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SYSTEM_3">
+    <rdfs:label>Jupiter-centered Body-Fixed Frame</rdfs:label>
+    <rdfs:comment>Same as #IAU_JUPITER.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JupiterCenteredFrame"/>
+    <skos:exactMatch rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IAU_JUPITER"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#TEIS">
+    <rdfs:label>Tethys Inter-action coordinate System</rdfs:label>
+    <rdfs:comment>The Tethys Inter-action coordinate System frame is defined as follows:
+      -  The inertially referenced velocity of Saturn relative to Tethys is the primary vector: +X;
+      -  The position of Saturn relative to Moon is the secondary vector: +Y axis points from Tethys to Saturn;
+      -  +Z axis completes the right-handed system;
+      -  the origin of this frame is Tethys' center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#TethysCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#TIIS">
+    <rdfs:label>Titan Inter-action coordinate System</rdfs:label>
+    <rdfs:comment>The Titan Inter-action coordinate System frame is defined as follows:
+      -  The inertially referenced velocity of Saturn relative to Titan is the primary vector: +X;
+      -  The position of Saturn relative to Titan is the secondary vector: +Y axis points from Titan to Saturn;
+      -  +Z axis completes the right-handed system;
+      -  the origin of this frame is Titan's center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#TitanCenteredFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UECLIP">
+    <rdfs:label>ECLIPJ2000 centered on Uranus</rdfs:label>
+    <rdfs:comment>Same as `#ECLIPJ2000` but centered on Uranus.
+      
+The value for the obliquity of the ecliptic at J2000 is taken from of 'Explanatory Supplement to the Astronomical Almanac' edited by P. Kenneth Seidelmann. University Science Books, 20 Edgehill Road, Mill Valley, CA 94941 (1992) page 114 equation 3.222-1
+    </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UranusCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#ECLIPJ2000"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UEME">
+    <rdfs:label>J2000 centered on Uranus</rdfs:label>
+    <rdfs:comment>Same as #EME (Earth mean equator, dynamical equinox of J2000) but centered on Uranus.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UranusCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#USO">
+    <rdfs:label>Uranus-centric Solar Orbital Coordinates</rdfs:label>
+    <rdfs:comment>The Uranus Solar Orbital frame is defined as follows:
+      -  The position of the Sun relative to Uranus is the primary vector: +X axis points from Uranus to the Sun;
+      -  The inertially referenced velocity of the Sun relative to Uranus is the secondary vector: +Y axis is the component of this velocity vector orthogonal to the +X axis;
+      -  +Z axis completes the right-handed system;
+      -  the origin of this frame is Uranus center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UranusCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#VME">
+    <rdfs:label>Venus Mean Equator</rdfs:label>
+    <rdfs:comment>The Venus Mean Equatorial of Date frame (also known as Venus Mean Equator and IAU vector of Date frame) is defined as follows :
+      - X-Y plane is defined by the Venus equator of date, and the +Z axis is parallel to the Venus' rotation axis of date, pointing toward the North side of the invariant plane;
+      - +X axis is defined by the intersection of the Venus' equator of date with the Earth Mean Equator of J2000;
+      - +Y axis completes the right-handed system;
+      -  the origin of this frame is Venus' center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#VenusCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EME"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#VSO">
+    <rdfs:label>Venus Solar Orbital</rdfs:label>
+    <rdfs:comment>The Venus Solar Orbital frame is defined as follows:
+      -  The position of the Sun relative to Venus is the primary vector: +X axis points from Venus to the Sun;
+      -  The inertially referenced velocity of the Sun relative to Venus is the secondary vector: +Y axis is the component of this velocity vector orthogonal to the +X axis;
+      +Z axis completes the right-handed system;
+      -  the origin of this frame is Venus center of mass.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#VenusCenteredFrame"/>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+<!-- Abstract Classes for Solar System Frames -->
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#EarthCenteredFrame">
+    <rdfs:label>Earth Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Earth's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SunCenteredFrame">
+    <rdfs:label>Sun Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Sun's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MercuryCenteredFrame">
+    <rdfs:label>Mercury Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Mercury's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#VenusCenteredFrame">
+    <rdfs:label>Venus Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Venus' center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MarsCenteredFrame">
+    <rdfs:label>Mars Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Mars' center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#JupiterCenteredFrame">
+    <rdfs:label>Jupiter Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Jupiter's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SaturnCenteredFrame">
+    <rdfs:label>Saturn Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Saturn's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#UranusCenteredFrame">
+    <rdfs:label>Uranus Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Uranus' center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#NeptuneCenteredFrame">
+    <rdfs:label>Neptune Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Neptune's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#CallistoCenteredFrame">
+    <rdfs:label>Callisto Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Callisto's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#Comet1PCenteredFrame">
+    <rdfs:label>Comet 1P/Halley Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Comet 1P/Halley center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#Comet26PCenteredFrame">
+    <rdfs:label>Comet 26P/Grigg-Skjellerup Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Comet 26P/Grigg-Skjellerup center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#Comet67PCenteredFrame">
+    <rdfs:label>Comet 67P/Churyumov–Gerasimenko Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Comet 67P/Churyumov–Gerasimenko commet's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#DeimosCenteredFrame">
+    <rdfs:label>Deimos Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Deimos' center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#DioneCenteredFrame">
+    <rdfs:label>Dione Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Dione's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#IoCenteredFrame">
+    <rdfs:label>Io Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Io's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#LutetiaCenteredFrame">
+    <rdfs:label>Lutetia Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Lutetia's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MimasCenteredFrame">
+    <rdfs:label>Mimas Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Mimas' center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#MoonCenteredFrame">
+    <rdfs:label>Earth's Moon Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Earth's Moon center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PhobosCenteredFrame">
+    <rdfs:label>Phobos Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Phobos' center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#PlutoCenteredFrame">
+    <rdfs:label>Pluto Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Pluto's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#RheaCenteredFrame">
+    <rdfs:label>Rhea Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Rhea's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SteinsCenteredFrame">
+    <rdfs:label>Asteroid (2867) Steins Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Asteroid (2867) Steins' center of mass.</rdfs:comment>    
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#TitanCenteredFrame">
+    <rdfs:label>Titan Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Titan's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#TethysCenteredFrame">
+    <rdfs:label>Tethys Centered Coordinates</rdfs:label>
+    <rdfs:comment>Reference frame with origin located at Tethys's center of mass.</rdfs:comment>    
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarSystemCenteredFrame">
+    <rdfs:label>Solar System Centered Coordinates</rdfs:label>
+    <dc:Location rdf:resource="http://www.ivoa.net/rdf/refposition#BARYCENTER"/>
+    <rdfs:comment>Reference frame with origin located at Solar System's center of mass.</rdfs:comment>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarEclipticFrame">
+    <rdfs:label>Body-related Solar Ecliptic Frame</rdfs:label>
+    <rdfs:comment>Reference frame defined as follows:
+ - The position of the Sun relative to the body is the primary vector: +X axis points from the body to the Sun;
+ - The inertially referenced velocity of the Sun relative to the body is the secondary vector: +Y axis is the component of this velocity vector orthogonal to the +X axis;
+ - +Z axis completes the right-handed system;
+ - the origin of this frame is the body center of mass.
+This frame is used for when the body is orbiting in the ecliptic plane.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/ihdea/refframe#SolarOrbitalFrame">
+    <rdfs:label>Body-related Solar Orbital Frame</rdfs:label>
+    <rdfs:comment>Reference frame defined as follows:
+ - The position of the Sun relative to the body is the primary vector: +X axis points from the body to the Sun;
+ - The inertially referenced velocity of the Sun relative to the body is the secondary vector: +Y axis is the component of this velocity vector orthogonal to the +X axis;
+ - +Z axis completes the right-handed system;
+ - the origin of this frame is the body center of mass.</rdfs:comment>
+  </rdfs:Class>
+</rdf:RDF>
