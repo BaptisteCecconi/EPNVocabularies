@@ -65,7 +65,7 @@ TERM_PATTERN = "[\w\d_-]+"
 
 PADC_RDF_URI = "http://voparis-ns.obspm.fr/rdf/"
 
-HT_ACCESS_TEMPLATE_CSV = """# .htaccess for content negotiation
+HT_ACCESS_TEMPLATE_VERSION = """# .htaccess for content negotiation
 
 # This file is patterned after Recipe 3 in the W3C document 'Best
 # Practice Recipes for Publishing RDF Vocabularies', at
@@ -79,19 +79,32 @@ AddCharset UTF-8 .html
 AddCharset UTF-8 .desise
 
 RewriteEngine On
-RewriteBase {install_base}
+RewriteBase {install_base}{timestamp}/
 
 RewriteCond %{{HTTP_ACCEPT}} application/rdf\\+xml
-RewriteRule ^$ {timestamp}/{name}.rdf [R=303]
+RewriteRule ^$ {name}.rdf [R=303]
 
 RewriteCond %{{HTTP_ACCEPT}} text/turtle
 RewriteRule ^$ {timestamp}/{name}.ttl [R=303]
 
 RewriteCond %{{HTTP_ACCEPT}} application/x-desise\\+json
-RewriteRule ^$ {timestamp}/{name}.desise [R=303]
+RewriteRule ^$ {name}.desise [R=303]
 
 # No accept conditions: make the .html version the default
-RewriteRule ^$ {timestamp}/{name}.html [R=303]
+RewriteRule ^$ {name}.html [R=303]
+"""
+
+HT_ACCESS_TEMPLATE_BASE = """# .htaccess for content negotiation
+
+# This file is patterned after Recipe 3 in the W3C document 'Best
+# Practice Recipes for Publishing RDF Vocabularies', at
+# <http://www.w3.org/TR/swbp-vocab-pub/>
+
+RewriteEngine On
+RewriteBase {install_base}
+
+# No accept conditions: make the .html version the default
+RewriteRule ^$ {timestamp}/ [R=303]
 """
 
 
