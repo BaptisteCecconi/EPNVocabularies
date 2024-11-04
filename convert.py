@@ -119,10 +119,14 @@ TTL_HEADER_TEMPLATE = """@base {baseuri}.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix ivoasem: <http://www.ivoa.net/rdf/ivoasem#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
-@prefix daci: <http://purl.org/datacite/v4.4/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix bibcode: <http://purl.org/vocab/vann/> .
+@prefix doi: <http://purl.org/vocab/vann/> .
 
 <> a owl:Ontology;
+    owl:versionIRI {version_iri} ;
     dc:created {timestamp};
+    vann:preferredNamespacePrefix {prefix};
     dc:creator {creators};
     dc:license {licenseuri};
     rdfs:label {title}@en;
@@ -134,6 +138,9 @@ dc:created a owl:AnnotationProperty.
 dc:creator a owl:AnnotationProperty.
 dc:title a owl:AnnotationProperty.
 dc:description a owl:AnnotationProperty.
+owl:versionIRI a owl:AnnotationProperty.
+vann:preferredNamespacePrefix a owl:AnnotationProperty.
+dc:license a owl:AnnotationProperty.
 """
 
 
