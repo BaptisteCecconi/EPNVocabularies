@@ -1,0 +1,28 @@
+@base <http://voparis-ns.obspm.fr/rdf/maser/maseront>.
+@prefix : <#> .
+
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix ivoasem: <http://www.ivoa.net/rdf/ivoasem#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+
+<> a owl:Ontology;
+    owl:versionInfo <http://voparis-ns.obspm.fr/rdf/maser/maseront/2024-05-17/maseront> ;
+    dc:created "2024-04-11";
+    dc:creator [ foaf:name "Cecconi, B." ],
+        [ foaf:name "Besse, S."],
+        [ foaf:name "PDS4" ];
+    dc:license <http://creativecommons.org/publicdomain/zero/1.0/>;
+    rdfs:label "Instrument Types for NASA/PDS3, NASA/PDS4 and PSA"@en;
+    dc:title "Instrument Types for NASA/PDS3, NASA/PDS4 and PSA"@en;
+    dc:description "Instrument Types for NASA/PDS3, NASA/PDS4 and PSA"@en ;
+    ivoasem:vocflavour "RDF Class".
+
+dc:created a owl:AnnotationProperty.
+dc:creator a owl:AnnotationProperty.
+dc:title a owl:AnnotationProperty.
+dc:description a owl:AnnotationProperty.
