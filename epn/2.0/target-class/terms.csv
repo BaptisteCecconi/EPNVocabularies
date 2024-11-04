@@ -1,0 +1,15 @@
+asteroid;1;Asteroid;Asteroid;skos:related(comet) skos:related(dwarf_planet)
+dwarf_planet;1;Dwarf Planet;Dwarf Planet;skos:related(asteroid) skos:related(planet)
+planet;1;Planet;Planet
+satellite;1;Satellite;Satellite stands for natural satellites only artificial satellites are handled though spacecraft or spacejunk.;skos:related(spacecraft)
+comet;1;Comet;Comet;skos:related(asteroid)
+exoplanet;1;Exoplanet;Extra-solar Planet;skos:related(planet) skos:exactMatch(http://www.ivoa.net/rdf/object-type#planet)
+interplanetary_medium;1;Interplanetary Medium;Interplanetary Medium refers in particular to interplanetary dust observed in context (not to samples).;skos:related(sky)
+sample;1;Sample;Sample refers to lunar or planetary samples, to meteorites, but also to terrestrial samples, e.g., in laboratory studies.
+sky;1;Sky;Sky should be used for all other celestial bodies, usually referred to by their sky coordinates. It also includes the Interstellar Medium.;skos:related(interplanetary_medium)
+spacecraft;1;Spacecraft;Spacecraft
+spacejunk;1;Spacejunk;Space junk, spacecraft debris
+star;1;Star;Star;skos:exactMatch(http://www.ivoa.net/rdf/object-type#star)
+calibration;1;Calibration;Calibration is used for observations only related to instrument or signal calibration, including dark current, flat field, reference sample (in lab), etc. Use of "calibration" with planetary bodies is left to data providers.
+interstellar-object;1;Interstellar Object;Interstellar Object;ivoasem:preliminary
+rogue-planet;1;Rogue Planet;Rogue Planet;ivoasem:preliminary skos:exactMatch(https://www.ivoa.net/rdf/uat/#free-floating-planets)
