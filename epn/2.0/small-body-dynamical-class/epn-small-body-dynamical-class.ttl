@@ -1,0 +1,198 @@
+@prefix : <http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix targ: <http://voparis-ns.obspm.fr/rdf/epn/2.0/target-class#> .
+@prefix ivoasem: <http://www.ivoa.net/rdf/ivoasem#> .
+@base <http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class> .
+
+<http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class> rdf:type owl:Ontology ;
+    owl:versionIRI <http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class/2024-05-06> ;
+    dc:contributor _:bc ; 
+	dc:created "2024-05-06"@en ;
+	dc:creator _:se ;
+	dc:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+	dc:title "EPNcore Small Body Dynamical Class [Working Draft]"@en ;
+	ivoasem:vocflavour "RDF Class"@en ;
+	rdfs:label "EPNcore Small Body Dynamical Class [Working Draft]"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/contributor
+dc:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dc:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dc:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.ivoa.net/rdf/ivoasem#vocflavour
+ivoasem:vocflavour rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#equivalentClass
+owl:equivalentClass rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#broader
+skos:broader rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#asteroid
+:asteroid rdf:type owl:Class ;
+          rdfs:subClassOf :small-body-dynamical-class ;
+          rdfs:label "Asteroid"@en ;
+          rdfs:comment "Asteroid"@en ;
+          owl:equivalentClass targ:asteroid .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#centaur
+:centaur rdf:type owl:Class ;
+         rdfs:subClassOf :asteroid ;
+         rdfs:comment "Centaur"@en ;
+         rdfs:label "Centaur"@en ;
+         skos:broader targ:asteroid .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#comet
+:comet rdf:type owl:Class ;
+          rdfs:subClassOf :small-body-dynamical-class ;
+       rdfs:label "Comet"@en ;
+       rdfs:comment "Comet"@en ;
+       owl:equivalentClass targ:comet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#dwarf-planet
+:dwarf-planet rdf:type owl:Class ;
+          rdfs:subClassOf :small-body-dynamical-class ;
+             rdfs:label "Dwarf Planet"@en ;
+             rdfs:comment "Dwarf Planet"@en ;
+             owl:equivalentClass targ:dwarf_planet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#halley-type
+:halley-type rdf:type owl:Class ;
+             rdfs:subClassOf :comet ;
+             rdfs:comment "Halley Type Comet"@en ;
+             rdfs:label "Halley Type Comet"@en ;
+             skos:broader targ:comet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#interstellar
+:interstellar rdf:type owl:Class ;
+              rdfs:subClassOf :comet ;
+              rdfs:comment "Interstellar Type Comet"@en ;
+              rdfs:label "Interstellar Type Comet"@en ;
+              skos:broader targ:comet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#jfc
+:jfc rdf:type owl:Class ;
+     rdfs:subClassOf :comet ;
+     rdfs:comment "Jupiter Family Comet"@en ;
+     rdfs:label "Jupiter Family Comet"@en ;
+     skos:broader targ:comet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#long-period
+:long-period rdf:type owl:Class ;
+             rdfs:subClassOf :comet ;
+             rdfs:comment "Long-period Type Comet"@en ;
+             rdfs:label "Long-period Type Comet"@en ;
+             skos:broader targ:comet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#mba
+:mba rdf:type owl:Class ;
+     rdfs:subClassOf :asteroid ,
+                     :dwarf-planet ;
+     rdfs:comment "Main Belt Asteroid"@en ;
+     rdfs:label "Main Belt Asteroid"@en ;
+     skos:broader targ:asteroid ,
+                  targ:dwarf_planet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#mbc
+:mbc rdf:type owl:Class ;
+     rdfs:subClassOf :comet ;
+     rdfs:comment "Main Belt Comet"@en ;
+     rdfs:label "Main Belt Comet"@en ;
+     skos:broader targ:comet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#neo
+:neo rdf:type owl:Class ;
+     rdfs:subClassOf :asteroid ;
+     rdfs:comment "Near Earth Object"@en ;
+     rdfs:label "Near Earth Object"@en ;
+     skos:broader targ:asteroid .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#occ
+:occ rdf:type owl:Class ;
+     rdfs:subClassOf :comet ;
+     rdfs:comment "Oort Cloud Comet"@en ;
+     rdfs:label "Oort Cloud Comet"@en ;
+     skos:broader targ:comet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#small-body-dynamical-class
+:small-body-dynamical-class rdf:type owl:Class ;
+                         rdfs:comment "Umbrella class for Small Body Dynamical Classes"@en ;
+                         rdfs:label "Small Body Dynamical Class"@en .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#tno
+:tno rdf:type owl:Class ;
+     rdfs:subClassOf :asteroid ,
+                     :dwarf-planet ;
+     rdfs:comment "Trans Neptunian Object"@en ;
+     rdfs:label "Trans Neptunian Object"@en ;
+     skos:broader targ:asteroid ,
+                  targ:dwarf_planet .
+
+
+###  http://voparis-ns.obspm.fr/rdf/epn/2.0/small-body-dynamical-class#trojan
+:trojan rdf:type owl:Class ;
+        rdfs:subClassOf :asteroid ;
+        rdfs:comment "Trojan"@en ;
+        rdfs:label "Trojan"@en ;
+        skos:broader targ:asteroid .
+
+_:bc a foaf:Person ; 
+     foaf:name "Baptiste Cecconi" .
+     
+_:se a foaf:Person ; 
+     foaf:name "Stéphane Erard" .
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

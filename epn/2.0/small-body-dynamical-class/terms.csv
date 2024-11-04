@@ -1,0 +1,30 @@
+asteroid;1;Asteroid;Asteroid;skos:exactMatch(http://voparis-ns.obspm.fr/rdf/epn/2.0/target-class#asteroid)
+centaur;2;Centaur;Centaur
+mba;2;Main Belt Asteroid;Main Belt Asteroid;skos:broader(dwarf-planet)
+inner;3;Inner;Inner Main Belt Asteroid
+middle;3;Middle;Middle Main Belt Asteroid
+outer;3;Outer;Outer Main Belt Asteroid
+cybele;3;Cybele;Cybele Main Belt Asteroid
+hilda;3;Hilda;Hilda Main Belt Asteroid
+neo;2;Near Earth Object;Near Earth Object
+aten;3;Aten;Aten Near Earth Object
+apollo;3;Apollo;Apollo Near Earth Object
+amor;3;Amor;Amor Near Earth Object
+atira;3;Atira;Atira Near Earth Object
+hungaria;2;Hungaria;Hungaria
+phocaea;2;Phocaea;Phocaea
+mars-crosser;2;Mars-crosser;Mars-crosser
+tno;2;Trans Neptunian Object;Trans Neptunian Object;skos:broader(dwarf-planet)
+resonant;3;Resonant TNO;Resonant TNO
+plutino;4;Plutino;Plutino (2:3)
+trojan;2;Trojan;Trojan
+comet;1;Comet;Comet;skos:exactMatch(http://voparis-ns.obspm.fr/rdf/epn/2.0/target-class#comet)
+halley-type;2;Halley Type Comet;Halley Type Comet
+interstellar;2;Interstellar Type Comet;Interstellar Type Comet
+jfc;2;Jupiter Family Comet;Jupiter Family Comet
+parabolic;2;Parabolic;Parabolic
+hyperbolic;2;Hyperbolic;Hyperbolic
+long-period;2;Long-period Type Comet;Long-period Type Comet
+mbc;2;Main Belt Comet;Main Belt Comet
+occ;2;Oort Cloud Comet;Oort Cloud Comet
+dwarf-planet;1;Dwarf Planet;Dwarf Planet;skos:exactMatch(http://voparis-ns.obspm.fr/rdf/epn/2.0/target-class#dwarf_planet)
