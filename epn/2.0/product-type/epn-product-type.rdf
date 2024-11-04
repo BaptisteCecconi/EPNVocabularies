@@ -34,6 +34,7 @@
         <dc:title xml:lang="en">EPNcore Dataproduct Type</dc:title>
         <ivoasem:vocflavour>RDF Class</ivoasem:vocflavour>
         <rdfs:label xml:lang="en">EPNcore Dataproduct Type</rdfs:label>
+
     </owl:Ontology>
     <rdfs:Class rdf:about="http://voparis-ns.obspm.fr/rdf/epn/2.0/product-type#im">
         <rdfs:label xml:lang="en">Image</rdfs:label>
