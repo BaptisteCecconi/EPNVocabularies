@@ -999,7 +999,12 @@ class Vocabulary(object):
         """
         install_base = urllib.parse.urlparse(self.baseuri).path+"/"
         with open(".htaccess", "w", encoding="utf-8") as f:
-            f.write(HT_ACCESS_TEMPLATE_CSV.format(
+            f.write(HT_ACCESS_TEMPLATE_BASE.format(
+                install_base=install_base,
+                timestamp=self.timestamp,
+                name=self.name))
+        with open("{}/.htaccess".format(self.timestamp), "w", encoding="utf-8") as f:
+            f.write(HT_ACCESS_TEMPLATE_VERSION.format(
                 install_base=install_base,
                 timestamp=self.timestamp,
                 name=self.name))
