@@ -1058,9 +1058,10 @@ class RDFBasedVocabulary(Vocabulary):
         terms = [str(x[0]).split('#')[1] for x in triples.query("""
             select distinct ?x
             where  { 
-                ?x a <http://www.w3.org/2000/01/rdf-schema#Class> .
+                ?x a ?c 
+                FILTER (?c IN (rdfs:Class, owl:Class))
             }
-            """)]
+            """, initNs={"rdfs": rdflib.RDFS, "owl": rdflib.OWL})]
         labels = dict([
             (str(x).split("#")[1], str(y))
             for x, y in triples.query("""
@@ -1084,11 +1085,12 @@ class RDFBasedVocabulary(Vocabulary):
         tmp = triples.query("""
             select distinct ?x ?p ?y 
             where  { 
-                ?x a <http://www.w3.org/2000/01/rdf-schema#Class> ;
+                ?x a ?c ;
                    ?p ?y . 
-                FILTER(?p != rdfs:label && ?p != rdfs:comment && ?p != rdf:type)
+                FILTER(?p != rdfs:label && ?p != rdfs:comment && ?p != rdf:type && ?c IN (rdfs:Class, 
+                owl:Class))
             }
-            """, initNs={"rdfs": rdflib.RDFS, "rdf": rdflib.RDF})
+            """, initNs={"rdfs": rdflib.RDFS, "rdf": rdflib.RDF, "owl": rdflib.OWL})
         other_relations = dict([(term, None) for term in terms])
         for x, p, y in tmp:
             p = p.replace("http://www.w3.org/2000/01/rdf-schema#", "rdfs:")
@@ -1096,6 +1098,7 @@ class RDFBasedVocabulary(Vocabulary):
             p = p.replace("http://purl.org/datacite/v4.4/", "daci:")
             p = p.replace("http://www.ivoa.net/rdf/ivoasem#", "ivoasem:")
             p = p.replace("http://purl.org/dc/terms/", "dc:")
+            p = p.replace("http://www.w3.org/2002/07/owl#", "owl:")
 
             other_relation = f'{str(p)}({str(y)})'
             term = str(x).split("#")[1]
