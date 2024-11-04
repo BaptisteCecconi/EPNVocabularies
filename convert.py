@@ -54,7 +54,8 @@ KNOWN_PREDICATES = frozenset([
     "skos:broader", "skos:exactMatch",
     # well, this one isn't quite in VocInVO2 in late 2020.  Let's see.
     "skos:related", "rdfs:seeAlso",
-    "daci:IsDescribedBy", "dc:Location"])
+    "rdfs:isDefinedBy", "dc:Location",
+    "owl:equivalentClass"])
 
 # an RE our term URIs must match (we're not very diligent yet)
 FULL_TERM_PATTERN = "[\w\d#:/_.*%-]+"
