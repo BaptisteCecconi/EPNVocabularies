@@ -1,0 +1,3 @@
+sidereal,1,Targetted sidereal,Targetted observation, with fixed celestial coordinates,
+solar-system-object-tracking,1,Solar system object tracking, Solar system object tracking,
+fixed-az-el-transit,1,Fixed Azimuth-Elevation transit,Observation with fixed local coordinate (e.g., azimuth elevation),
